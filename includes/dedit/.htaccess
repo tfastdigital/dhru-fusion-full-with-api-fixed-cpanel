@@ -1,0 +1,19 @@
+# Product    : DHRU Fusion - http://www.dhru.com/dhrufusion
+# Email      : info@dhru.com
+# Copyright (c) 2015-16 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess dedit    : 1.0
+
+#Options +FollowSymlinks
+RewriteEngine On
+
+Order deny,allow
+Deny from all
+
+<Files ~ "\.(css|js|jpeg|jpg|png|gif)$">
+   allow from all
+</Files>
+
+<Files ~ "\.(php|php2|php3|php4|php5|php6|php7|php8|php9|cgi|pl|py)$">
+   Deny from all
+</Files>

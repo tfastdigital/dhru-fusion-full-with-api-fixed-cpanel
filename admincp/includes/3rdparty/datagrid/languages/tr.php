@@ -1,0 +1,147 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+function setLanguage()
+{
+    $lang["="] = "=";
+    $lang[">"] = ">";
+    $lang["<"] = "<";
+    $lang["add"] = "Ekle";
+    $lang["add_new"] = "+ Yeni Ekle";
+    $lang["add_new_record"] = "Yeni Kayэt Ekle";
+    $lang["add_new_record_blocked"] = "G&uuml;venlik kontrol: yeni bir kay&#305;t ekleme giri&#351;imi! Ayarlar&#305;n&#305;z&#305; kontrol edin, &ccedil;al&#305;&#351;ma izin verilmez!";
+    $lang["adding_operation_completed"] = "Kayэt Эюlemi Tamamlandэ!";
+    $lang["adding_operation_uncompleted"] = "Эюlem Tamamlanamadэ Hata Oluюtu!";
+    $lang["alert_perform_operation"] = "Siz bu i&#351;lemi yapmak istedi&#287;inizden emin misiniz?";
+    $lang["alert_select_row"] = "Bir veya daha fazla sat&#305;r se&ccedil;mek i&ccedil;in bu i&#351;lemi ger&ccedil;ekle&#351;tirmek i&ccedil;in ihtiya&ccedil;!";
+    $lang["and"] = "ve";
+    $lang["any"] = "hiз";
+    $lang["ascending"] = "Kьзьkten Bьyьрe";
+    $lang["back"] = "Geri";
+    $lang["cancel"] = "Эptal";
+    $lang["cancel_creating_new_record"] = "Yeni kayэdэ iptal etmek istiyormusun?";
+    $lang["check_all"] = "Hepsini Seз";
+    $lang["clear"] = "Temizlemek";
+    $lang["click_to_download"] = "Indirmek i&ccedil;in t&#305;klay&#305;n";
+    $lang["clone_selected"] = "Clone selected";
+    $lang["cloning_record_blocked"] = "Security check: attempt of cloning a record! Check your settings, the operation is not allowed!";
+    $lang["cloning_operation_completed"] = "The cloning operation completed successfully!";
+    $lang["cloning_operation_uncompleted"] = "The cloning operation uncompleted!";
+    $lang["create"] = "Oluюtur";
+    $lang["create_new_record"] = "Yeni kayэt oluюtur";
+    $lang["current"] = "Юimdiki";
+    $lang["delete"] = "Sil";
+    $lang["delete_record"] = "Kayэt Sil";
+    $lang["delete_record_blocked"] = "G&uuml;venlik kontrol: bir kay&#305;t silmek giri&#351;imi! Ayarlar&#305;n&#305;z&#305; kontrol edin, &ccedil;al&#305;&#351;ma izin verilmiyor!";
+    $lang["delete_selected"] = "Seзilileri Sil";
+    $lang["delete_selected_records"] = "Seзili kayэtlarэ silmek istiyormusun?";
+    $lang["delete_this_record"] = "Bu kayэtэ silmek istiyormusun?";
+    $lang["deleting_operation_completed"] = "Silme iюlemi tamamlandэ!";
+    $lang["deleting_operation_uncompleted"] = "Silme iюlemi baюarэsэz!";
+    $lang["descending"] = "Bьyьkten Kьзьрe";
+    $lang["details"] = "Detaylar";
+    $lang["details_selected"] = "G&ouml;r&uuml;n&uuml;m&uuml; se&ccedil;ili";
+    $lang["download"] = "Indirmek";
+    $lang["edit"] = "değiştir";
+    $lang["edit_selected"] = "De&#287;i&#351;tir Se&ccedil;ilen";
+    $lang["edit_record"] = "Kayэdэ Dьzenle";
+    $lang["edit_selected_records"] = "Se&ccedil;ilen kay&#305;tlar&#305; d&uuml;zenlemek istedi&#287;inizden emin misiniz?";
+    $lang["errors"] = "Hatalar";
+    $lang["export_to_excel"] = "Excele Aktar";
+    $lang["export_to_pdf"] = "PDF Aktar";
+    $lang["export_to_xml"] = "Xmle Aktar";
+    $lang["export_message"] = "<label class=\"default_dg_label\">Dosya _file_ haz&#305;r. Sonra indirme bitirmek,</label> <a class=\"default_dg_error_message\" href=\"javascript: window.close();\">bu pencereyi kapat</a>.";
+    $lang["field"] = "Alan";
+    $lang["field_value"] = "Alan Deрeri";
+    $lang["file_find_error"] = "Dosya bulunam&#305;yor: <b>_FILE_</b>. <br>Kontrol e&#287;er bu dosya varsa ve size do&#287;ru yolu kullanmak!";
+    $lang["file_opening_error"] = "Bir dosya aзэlamэyor. Dosya izinlerini kontrol edin.";
+    $lang["file_extension_error"] = "File upload error: file extension not allowed for upload. Please select another file.";
+    $lang["file_writing_error"] = "Bir dosya yazэlamэyor. Dosya yazma izinlerini kontrol edin!";
+    $lang["file_invalid_file_size"] = "Geзersiz dosya boyutu";
+    $lang["file_uploading_error"] = "Upload iюleminde hata oluюtu.!";
+    $lang["file_deleting_error"] = "Orada bir hata silinirken!";
+    $lang["first"] = "Birinci";
+    $lang["generate"] = "Olu&#351;turmak";
+    $lang["handle_selected_records"] = "Se&ccedil;ilen kay&#305;tlar&#305; ele istedi&#287;inizden emin misiniz?";
+    $lang["hide_search"] = "Aramayэ Gizle";
+    $lang["last"] = "Son";
+    $lang["like"] = "Benzer";
+    $lang["like%"] = "ho&#351;lanmak%";
+    $lang["%like"] = "%ho&#351;lanmak";
+    $lang["%like%"] = "%ho&#351;lanmak%";
+    $lang["loading_data"] = "y&uuml;kleme verileri...";
+    $lang["max"] = "max";
+    $lang["next"] = "Эleri";
+    $lang["no"] = "Hayэr";
+    $lang["no_data_found"] = "Kayэt Bulunamadэ";
+    $lang["no_data_found_error"] = "Kayэt bulunamadэ. Hatalэ syantax.";
+    $lang["no_image"] = "Resim Yok";
+    $lang["not_like"] = "Benzer Olmayan";
+    $lang["of"] = "-nin";
+    $lang["operation_was_already_done"] = "Zaten operasyon tamamland&#305;! Tekrar tekrar deneyin olamaz.";
+    $lang["or"] = "veya";
+    $lang["pages"] = "Sayfalar";
+    $lang["page_size"] = "Sayfa boyutu";
+    $lang["previous"] = "Цnceki";
+    $lang["printable_view"] = "Yazdэrэlabilir Gцrьnьm";
+    $lang["print_now"] = "Юimdi Yazdэr";
+    $lang["print_now_title"] = "Bu sayfayэ yazэcэya gцnder";
+    $lang["record_n"] = "Kayэt #";
+    $lang["refresh_page"] = "Refresh Page";
+    $lang["remove"] = "Sil";
+    $lang["reset"] = "Reset";
+    $lang["results"] = "Sonuзlar";
+    $lang["required_fields_msg"] = "<font color='#cd0000'>*</font> iюaretli bцlьmler gereklidir.";
+    $lang["search"] = "Arama";
+    $lang["search_d"] = "Arama";
+    $lang["search_type"] = "Arama Tipi";
+    $lang["select"] = "seз";
+    $lang["set_date"] = "Tarihi Ayarla";
+    $lang["sort"] = "Sort";
+    $lang["test"] = "Test";
+    $lang["total"] = "Toplam";
+    $lang["turn_on_debug_mode"] = "Daha fazla bilgi i&ccedil;in, hata ay&#305;klama modunu a&ccedil;&#305;n.";
+    $lang["uncheck_all"] = "Hepsini Seзme";
+    $lang["unhide_search"] = "Unhide Arama";
+    $lang["unique_field_error"] = "Alan _FIELD_ yaln&#305;zca benzersiz de&#287;erleri - yeniden girin l&uuml;tfen izin verir!";
+    $lang["update"] = "Gьncelle";
+    $lang["update_record"] = "Kayэt gьncelle";
+    $lang["update_record_blocked"] = "Security check: attempt of updating a record! Check your settings, the operation is not allowed!";
+    $lang["updating_operation_completed"] = "Kayэt gьncelleme baюarэlэ!";
+    $lang["updating_operation_uncompleted"] = "Baюarэsэz kayэt gьncelleme!";
+    $lang["upload"] = "Yьkle";
+    $lang["uploaded_file_not_image"] = "Y&uuml;klenen dosya bir g&ouml;r&uuml;nt&uuml; olarak g&ouml;r&uuml;nm&uuml;yor.";
+    $lang["view"] = "Gцr";
+    $lang["view_details"] = "Detaylarэ Gцr";
+    $lang["warnings"] = "Warnings";
+    $lang["with_selected"] = "Seзilenleri";
+    $lang["wrong_field_name"] = "Yanlэю dosya adэ";
+    $lang["wrong_parameter_error"] = "Yanl&#305;&#351; parametresinde [<b>_FIELD_</b>]: _VALUE_";
+    $lang["yes"] = "Evet";
+    $lang["day"] = "g&uuml;n";
+    $lang["month"] = "ay";
+    $lang["year"] = "y&#305;l";
+    $lang["hour"] = "saat";
+    $lang["min"] = "min";
+    $lang["sec"] = "saniye";
+    $lang["months"][1] = "Ocak";
+    $lang["months"][2] = "&#350;ubat";
+    $lang["months"][3] = "Mart";
+    $lang["months"][4] = "Nisan";
+    $lang["months"][5] = "May&#305;s";
+    $lang["months"][6] = "Haziran";
+    $lang["months"][7] = "Temmuz";
+    $lang["months"][8] = "A&#287;ustos";
+    $lang["months"][9] = "Eyl&uuml;l";
+    $lang["months"][10] = "Ekim";
+    $lang["months"][11] = "Kas&#305;m";
+    $lang["months"][12] = "Aral&#305;k";
+    return $lang;
+}
+
+?>

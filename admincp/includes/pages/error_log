@@ -1,0 +1,5 @@
+[02-Nov-2023 14:26:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function htmlspecialchars_array() in /home/dkmunssk/public_html/comm.php:66
+Stack trace:
+#0 /home/dkmunssk/public_html/admincp/includes/pages/onlinestaff2.php(12): include()
+#1 {main}
+  thrown in /home/dkmunssk/public_html/comm.php on line 66

@@ -1,0 +1,368 @@
+body{
+    background: #fff;
+}
+.page-width {
+    max-width: 1150px;
+    margin: auto;
+}
+.navbar-brand{
+    margin-left:1rem;
+    color:white !important;
+}
+.modal .navbar-brand{
+    color:black !important;
+}
+
+.index .header-fixed {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    transition: all 0.5s;
+    padding:25px;
+    background: transparent !important;
+}
+.index .header-fixed.navbar-shrink {
+    padding:0 0 15px 0;
+    transition: all 0.5s;
+}
+.header-bottom{
+
+}
+.container{
+
+}
+.header-cart{
+    background: white;
+    position: relative;
+}
+.nav.navbar-dark .nav-link,.nav-link-search{
+
+}
+.header-top{
+    border:none;
+    padding:1rem;
+}
+.nav.navbar-light .nav-link {
+
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    color:white;
+}
+.nav.navbar-dark .nav-item .nav-link,.navbar-expand-lg .navbar-nav .nav-link{
+    text-transform: uppercase;
+}
+
+.navbar-expand-lg .navbar-nav .nav-item:hover .nav-link:not(.bg-secondary)::before{
+    opacity: 0;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+
+}
+.navbar-expand-lg #navigationmenu .nav-item {
+    padding:0;
+}
+.navbar-expand-lg #navigationmenu .nav-item .nav-link{
+    padding: 7px;
+    color:#888
+}
+.navbar-products .nav-item:hover,.header-top .nav-item:hover{
+
+}
+.navbar-products .nav-item.dropdown:hover,.header-top .nav-item.dropdown:hover{
+
+}
+.carousel.index-banner{
+
+}
+.min-height {
+    min-height: calc(100vh - 534px);
+    padding-bottom: 1.5rem;
+}
+.tpl-index .min-height {
+    padding-bottom: 0;
+}
+.no-cart .min-height {
+    min-height: calc(100vh - 478px);
+}
+.rounded-5{
+    border-radius: 5px !important;
+}
+header .position-static .dropdown-menu{
+
+}
+.banner-type{
+    height:calc(100vh - 0px);
+}
+.breadcrumb,.page-title{
+    padding:0 1rem;
+}
+.card,.card.card-product.border-gray{
+    box-shadow: none;
+    background: #fff;
+    border-radius: 0;
+    padding: 0;
+}
+.card.card-product.border-gray{
+    background: transparent;
+}
+.card.card-product.border-gray:hover,.card.card-product .product-info{
+    background: #fff;
+    border-color: transparent;
+}
+.card-retail-order{
+    border:#eee solid 1px;
+}
+
+
+.card-group{
+
+}
+.card-body{
+    text-align: center;
+}
+
+.card-product:hover {
+    border-color: #0e9ee5;
+    box-shadow: none;
+    border-radius: 3px;
+}
+
+.card-product .product-info {
+    padding:10px;
+}
+.card-product .card-body{
+    padding-top: 1rem;
+    border-top: #e7e6e6 solid 1px;
+    margin-top: 1rem;
+}
+.card-img-top{
+
+}
+.card-search{
+
+}
+.imagemode .hot{
+    top:auto
+}
+.price {
+    font-weight: bold;
+}
+.big-chosen{
+    margin-bottom:1rem;
+}
+.service-list {
+    padding-right:10px;
+}
+.page-title {
+    font-weight: normal;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+.carousel-fade .carousel-item img{
+    opacity: 0;
+    visibility: hidden;
+}
+.card-product-img {
+    height: 100%;
+    padding: 1rem 0;
+}
+.affiliate-marketing{
+    padding:0;
+}
+.sidebar .cart{
+
+}
+
+.navbar-toggler{
+    color:white
+}
+.hot {
+    bottom: 0;
+    left: auto;
+    right: 0;
+    transform: rotate(0deg);
+    top: auto;
+}
+.serchcontent{
+    background: #fff;
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    background: #ededed;
+}
+.modal-header .close {
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 18px;
+    color: #0b0b0b;
+    font-size: 1.5rem;
+    background: transparent;
+    top: 0;
+    right: 0;
+}
+.modal-body {
+    padding: 2rem;
+}
+.footer-top {
+    background: #fff;
+    border-top: #f5f5f5 solid 5px;
+}
+.footer-top .link-heading:after {
+    width: 100%;
+    height: 1px;
+    display:none
+}
+.footer-bottom {
+    background: #2D2D2D;
+    color: white;
+}
+
+.client-area .card{
+    border:#dddddd82 solid 1px;
+    padding:1rem;
+}
+.cart-gallery table{
+    height: 100%;
+}
+.cart-item-detail{
+    border: none !important;
+}
+.imagemode .card-product{
+    border-radius: 5px;
+}
+
+.homepagegroups ul.nav-pills.flex-nowrap .nav-item:not(.nav-item-parent) .nav-link {
+
+}
+.homepagegroups ul.nav-pills.flex-nowrap{
+    padding-top: 0.6rem;
+    padding-bottom: 0.1rem;
+}
+
+
+.reload-cartitems{
+
+}
+h3.h3:after, h3.h3:before {
+    content: '';
+    position: absolute;
+    border-bottom: #dfe2e6 solid 1px;
+    height: 1px;
+    width: 50%;
+    z-index: 0;
+    top: 50%;
+}
+.table{
+    background: transparent;
+}
+
+.page-content{
+
+}
+.card-servicedetail{
+    padding:1rem 2rem;
+}
+.big-chosen .chosen-container-single .chosen-single,.chosen-container .chosen-drop{
+    box-shadow: none;
+    border: #ddd solid 1px !important;
+}
+
+h3.h3.or.gray span.text-muted:before{
+    background: white;
+}
+.btn-cartview-next{
+
+}
+.card-title span{
+    border-bottom: black solid 2px;
+}
+.card-announcement {
+    max-height: 459px;
+}
+.footer-top .link-heading{
+    color: black;
+}
+.index-items-homepagegroup{
+    background: transparent;
+}
+.index-items,.index-reseller{
+
+}
+
+.index-items .page-container,.index-reseller .page-container{
+    background: #fff;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+}
+.index-content .page-container{
+    padding: 0;
+}
+.index-items h3.title {
+    padding-top: 1rem;
+}
+.col-product {
+    margin-bottom: 15px;
+}
+
+.card-group.card-product .truncate-text{
+    margin-bottom: 1rem;
+}
+header .dropdown:hover .dropdown-menu:not(.onclick) {
+    border-radius: 0;
+}
+.card.card-simple-form{
+    padding: 0;
+}
+
+.page-login {
+    background: #01010154;
+    padding: 25px 25px !important;
+    border-radius: 10px;
+}
+.page-login input.form-control,.page-login .border{
+    border:none !important;
+}
+.page-login a,.page-login .text-muted{
+    color:white !important;
+}
+.page-login a{
+    font-size:13px;
+}
+.page-login h3.h3 span.text-muted:before{
+    background: transparent;
+}
+.page-login .card{
+    background: transparent;
+    padding: 1.5rem;
+}
+.page-registration{
+    max-width: 100%;
+    flex:100%;
+    padding:0
+}
+.login-captcha {
+    margin-right: 15px;
+    height: 44px;
+    border-radius: 3px;
+}
+.input-captcha {
+    background: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+.reloadcaptcha{
+    top:20px;
+}
+
+@media (max-width: 992px){
+    header .position-static .dropdown-menu {
+        padding: 10px 0;
+    }
+    .card-body{
+        text-align: left;
+    }
+}

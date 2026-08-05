@@ -1,0 +1,21 @@
+[02-Nov-2023 09:09:49 US/Central] PHP Fatal error:  Uncaught Error: Class 'SmartyBC' not found in /home/dkmunssk/public_html/includes/mail.fun.php:193
+Stack trace:
+#0 /home/dkmunssk/public_html/includes/imeiservices.fun.php(2144): sendMail(14, '3', '2', Array, true)
+#1 /home/dkmunssk/public_html/admincp/includes/pages/edituser.editimeiordersuccess.save.php(19): replySuccessIMEI('c81e728d9d4c2f6...', '<p>DONE</p>', 99999, '', '', '', '', '2')
+#2 /home/dkmunssk/public_html/admincp/includes/main.save.php(24): require_once('/home/dkmunssk/...')
+#3 {main}
+  thrown in /home/dkmunssk/public_html/includes/mail.fun.php on line 193
+[14-Nov-2023 09:22:14 US/Central] PHP Fatal error:  Uncaught Error: Call to a member function Debug() on null in /home/dkmunssk/public_html/includes/apiserver.fun.php:566
+Stack trace:
+#0 /home/dkmunssk/public_html/includes/apiserver.fun.php(91): saveApiServices(Array, 'fusion11', false, Array)
+#1 /home/dkmunssk/public_html/admincp/includes/pages/editimeiservice.apiconnectionresync.save.php(27): syncApi('fusion11', false, 'services', '')
+#2 /home/dkmunssk/public_html/admincp/includes/main.save.php(24): require_once('/home/dkmunssk/...')
+#3 {main}
+  thrown in /home/dkmunssk/public_html/includes/apiserver.fun.php on line 566
+[15-Nov-2023 07:15:50 US/Central] PHP Fatal error:  Uncaught Error: Call to a member function Debug() on null in /home/dkmunssk/public_html/includes/apiserver.fun.php:566
+Stack trace:
+#0 /home/dkmunssk/public_html/includes/apiserver.fun.php(91): saveApiServices(Array, 'fusion11', false, Array)
+#1 /home/dkmunssk/public_html/admincp/includes/pages/editimeiservice.apiconnectionresync.save.php(27): syncApi('fusion11', false, 'services', '')
+#2 /home/dkmunssk/public_html/admincp/includes/main.save.php(24): require_once('/home/dkmunssk/...')
+#3 {main}
+  thrown in /home/dkmunssk/public_html/includes/apiserver.fun.php on line 566

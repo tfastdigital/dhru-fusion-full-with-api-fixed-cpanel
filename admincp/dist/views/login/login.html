@@ -1,0 +1,18 @@
+<div class="position-fixed w-100 h-100 bg-white" style="left: 0;top:0;z-index:9998">
+    <div class="d-flex h-100 w-100 align-items-center justify-content-between">
+        <div class="mx-auto" style="width: 300px">
+            <h3 class="card-title text-center my-3">Login</h3>
+            <form name="authentication"  ng-submit="login($event)">
+                <div class="form-group">
+                    <input type="text"  class="form-control"   placeholder="Username" required autofocus ng-model="access.username">
+                </div>
+
+                <div class="form-group">
+                    <input type="password"  class="form-control"   placeholder="Password" required ng-model="access.password">
+                </div>
+
+                <button  class="btn btn-lg btn-primary btn-lg w-100"  type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

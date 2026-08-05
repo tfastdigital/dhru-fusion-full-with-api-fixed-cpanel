@@ -1,0 +1,15 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+$tag = "Items";
+$summary = "Get Item Group";
+$WithOutIDOptrion = true;
+$parameters[] = ["name" => "start", "in" => "query", "type" => "string"];
+$parameters[] = ["name" => "limit", "in" => "query", "type" => "string"];
+
+?>

@@ -1,0 +1,17 @@
+{if $currentpage} {else} <img src="templates/default/images/security.png"/> {/if}
+{if $currentpage eq 'placeorderimei'}<img src="templates/default/images/neworder.png"/>{/if}
+{if $currentpage eq 'pendingorderimei'}<img src="templates/default/images/orderprocess.png"/>{/if}
+{if $status eq 'available'}<img src="templates/default/images/availableorder.png"/>{/if}
+{if $status eq 'rejected'}<img src="templates/default/images/rejectedorder.png"/>{/if}
+{if $currentpage eq 'reseller'}<img src="templates/default/images/reseller.png"/>{/if}
+{if $currentsubmenu eq 'profile'} <img src="templates/default/images/edituser.png"/> {/if}
+{if $currentsubmenu eq 'password'} <img src="templates/default/images/security.png"/> {/if}
+{if $currentsubmenu eq 'pin'} <img src="templates/default/images/security.png"/> {/if}
+{if $currentsubmenu eq 'question'} <img src="templates/default/images/security.png"/> {/if}
+{if $currentsubmenu eq 'logins'} <img src="templates/default/images/security.png"/> {/if}
+{if $currentsubmenu eq 'api'} <img src="templates/default/images/edituser.png"/> {/if}
+{if $currentsubmenu eq 'invoice'} <img src="templates/default/images/invoice.png"/> {/if}
+{if $currentsubmenu eq 'mail'} <img src="templates/default/images/email.png"/> {/if}
+{if $currentsubmenu eq 'statement'} <img src="templates/default/images/statement.png"/> {/if}
+{if $currentsubmenu eq 'transfer'} <img src="templates/default/images/edituser.png"/> {/if}
+{if $currentsubmenu eq 'voucher'} <img src="templates/default/images/edituser.png"/> {/if}

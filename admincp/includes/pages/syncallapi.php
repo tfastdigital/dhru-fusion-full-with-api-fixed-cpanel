@@ -1,0 +1,23 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+if (!isset($_SESSION[adminid])) {
+    exit;
+}
+echo "<script src=\"includes/js/iframe.js\" type=\"text/javascript\"></script>\t\n<script src=\"includes/js/progressbar.js\" type=\"text/javascript\"></script>\n<script>\nfunction sync_load_page(pagename) {\n    try{\n\n    \$(\"#sync_status\").show();\n\t\$(\"#sync_iframe\").show();\n\t\$(\"#sync_button\").hide();\n    \$(\"#sync_iframe\").src(pagename , function(duration){\n\t\t\t\$(\"#sync_status\").hide();\n\t\t\tdisablescroll();\n\t\t\t\$(\"#sync_button\").show();\n\t\t\t//\$('#sync_iframe').scroll();\n\t\t\t//\$(\"#sync_button\").attr(\"disabled\", \"false\");\n      \t}\n    );\n    }catch(c){\n        \n    }\n}\n    \n</script>\n\n<style>\n/* progress bar container */\n#progressbar{\n        border:1px solid black;\n        width:200px;\n        height:20px;\n        position:relative;\n        color:black; \n}\n/* color bar */\n#progressbar div.progress{\n        position:absolute;\n        width:0;\n        height:100%;\n        overflow:hidden;\n        background-color:#369;\n}\n/* text on bar */\n#progressbar div.progress .text{\n        position:absolute;\n        text-align:center;\n        color:white;\n}\n/* text off bar */\n#progressbar div.text{\n        position:absolute;\n        width:100%;\n        height:100%;\n        text-align:center;\n}\n.fieldarea input[type=\"text\"]{width:200px}\n</style>\n<div id=\"sync_status\" style=\"display:none; width: 100% !important;\">\n\n<!--\n<div align=\"center\" style=\"width: 100% !important;\"> <div id=\"progressbar\"></div> </div>\n-->\n \n<br /><img  src=\"images/syncloader.gif\" border=\"0\" /><br /> <h3 class=\"textred\">please do not close until Synchronize completed</h3> <br /> </div><br />\n<iframe id=\"sync_iframe\" scrolling=\"auto\" style=\"border:1px solid #CCC; display:none; width:100%; height: 300px;position: relative;\" src=\"\"></iframe>\n\n<script>\n\$(\"#progressbar\").reportprogress(10);\n\n    var sync_iframe;\n    var dwindow;\n    var dbody;\n    var ns = 2000000;\n    var scrolltimer;\n    var doscroll=1;\n    function disablescroll() {\n        clearInterval(scrolltimer);    doscroll=0;\n    }\n    function initscroll () {\n        try{\n        \tsync_iframe = document.getElementById('sync_iframe'); \n        \tif (sync_iframe.window)\n        \t{ dwindow=sync_iframe.document.window; }\n            else if (sync_iframe.contentWindow) \n        \t{ dwindow=sync_iframe.contentWindow; } \n        \t\n        \tif (sync_iframe.document) { dbody=sync_iframe.document.body; }\n        \telse if (sync_iframe.contentDocument) { dbody=sync_iframe.contentDocument.body; }    \n            checkscroll();   \n        \tscrolltimer = setInterval(checkscroll,500); \n        }catch(e){\n            \n        }\n    }\n    function checkscroll() {  \n    \tif (!doscroll) { return; \n    \t}\n        dwindow.scroll(0,dbody.offsetHeight); \n    \tdwindow.scroll(0,ns++);\n    }\n</script>\n</div>\n";
+$updateonlyserviceprice = 1;
+$api = dquery("select distinct API \nfrom tbl_services_imei where\n API_ID!='' and active=1");
+while ($rowapi = mysqli_fetch_assoc($api)) {
+    $gate[] = $rowapi["API"];
+}
+echo "    <script>\n    sync_load_page('includes/pages/apisync.sync.php?id=";
+echo implode(",", $gate);
+echo "&multiple=true&updateonlyserviceprice=1');\n    initscroll();\n    </script>\n    ";
+$fileverioncheck = "6.1.0";
+
+?>

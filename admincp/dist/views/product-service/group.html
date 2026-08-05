@@ -1,0 +1,140 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-auto">
+
+            <div class="tree">
+                <script type="text/ng-template" id="categoryTree">
+
+                    <span class="cursor-pointer"   ng-click="setGroup(group)">  {{ group.itemgroupname }} </span>
+
+                    <ul ng-if="group.sub">
+                        <li ng-repeat="group in group.sub"  ng-include="'categoryTree'">
+                        </li>
+                    </ul>
+                </script>
+
+                <ul>
+                    <li ng-repeat="group in groups"   ng-include="'categoryTree'"></li>
+                    <li class="cursor-pointer"  ng-click="setGroup({itemgroupid:0},'add')"> +Add  </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-lg-6 border-left ml-4 pl-4">
+
+            <form name="Form2"  ng-submit="savegroup($event,'edit')" autocomplete="off" ng-if="editgroup.itemgroupid">
+
+                <h5 class="mb-4">Edit {{editgroup.itemgroupname}}</h5>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Group</label>
+                        <div class="col-sm-9">
+                            <input type="text" ng-model="editgroup.itemgroupname" required class="form-control" >
+                        </div>
+                    </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent</label>
+                    <div class="col-sm-9">
+                        <select ng-model="editgroup.itemgroupmid" class="form-control">
+                            <option>Select Group</option>
+                            <option ng-repeat="(key,item) in gp" value="{{item.id}}"  > {{addSpaces(item.level)+item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label"> Status </label>
+                        <div class="col-sm-9">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" ng-model="editgroup.itemgroupstatus" ng-true-value="'1'" ng-false-value="'0'" id="customCheck2">
+                                <label class="custom-control-label" for="customCheck2"> </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label"> </label>
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </div>
+
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<button class="btn btn-flot btn-primary"   ng-click="setGroup(editgroup,'add')">
+    +
+</button>
+
+
+
+
+
+<div class="modal fade" id="addgroup" tabindex="-1" role="dialog" aria-labelledby="addproductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-sm" role="document">
+        <form class="modal-content" autocomplete="off"  name="Form" ng-submit="savegroup($event,'add')">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addproductLabel">Add Group </h5>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Group</label>
+                            <div class="col-sm-9">
+                                <input type="text" ng-model="addgroup.itemgroupname" required class="form-control" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Parent</label>
+                            <div class="col-sm-9">
+                                <select ng-model="addgroup.itemgroupmid" class="form-control">
+                                    <option>Select Group</option>
+                                    <option ng-repeat="(key,item) in gp" value="{{item.id}}"  > {{addSpaces(item.level)+item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label"> Status </label>
+                            <div class="col-sm-9">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" ng-model="addgroup.itemgroupstatus" ng-true-value="'1'" ng-false-value="'0'" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1"> </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

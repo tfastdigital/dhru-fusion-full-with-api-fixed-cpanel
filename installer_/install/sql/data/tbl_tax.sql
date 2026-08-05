@@ -1,0 +1,1 @@
+INSERT  IGNORE INTO `tbl_tax` (`id`, `level`, `name`, `state`, `country`, `taxrate`, `gateway`, `fixedcharge`) VALUES (8,1,'Gateway fee','','',2.50,'',0.00),(12,1,'Paypal Tax','','',4.50,'paypalexpress',0.30);

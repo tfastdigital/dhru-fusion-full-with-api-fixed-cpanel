@@ -1,0 +1,88 @@
+[29-Jul-2023 15:19:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13
+[29-Jul-2023 15:19:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php:13
+Stack trace:
+#0 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php(13): PDO->query('SELECT  * FROM ...')
+#1 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/function.php(18): getQntRange()
+#2 /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/init/get.php(11): init()
+#3 /home/appunbsx/diamondgsm.com/admincp/api/v1/index.php(121): include_once('/home/appunbsx/...')
+#4 {main}
+  thrown in /home/appunbsx/diamondgsm.com/admincp/api/v1/actions/qntrange/function.php on line 13

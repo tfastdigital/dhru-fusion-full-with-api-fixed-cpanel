@@ -1,0 +1,291 @@
+<div class=" w-100">
+
+<div   style="width: 1300px" class="m-auto">
+
+    <div class="d-flex justify-content-between align-items-center py-3 mt-5">
+        <img src="./images/logo_60.png" class="logo-img"/>
+        <div>
+            <h6 class="mb-0" style="color: #777" ng-if="init.installationtype!='update'">New Installation of {{init.productname}} <b> {{init.applicationversion}} <small> {{init.applicationrc}}</small> </b></h6>
+            <h6 class="mb-0" style="color: #777" ng-if="init.installationtype=='update'">Upgrade {{init.productname}} from <b> {{init.installedversion}} <small>{{init.installedrc}}</small> </b> &rarr; <b> {{init.applicationversion}} <small>{{init.applicationrc}}</small></b></h6>
+        </div>
+    </div>
+
+
+    <form id="smartwizard" class="p-5 bg-white">
+
+        <ul ng-if="init.installationtype=='new'">
+            <li class="nav-item"><a class="nav-link" href="#step-1">License Agreement<br /><small>Terms & condition</small></a></li>
+            <li  class="nav-item"><a class="nav-link"  href="#step-2">System Information<br /><small>Getting system info</small></a></li>
+            <li  class="nav-item"><a class="nav-link"  href="#step-3">Database Setup<br /><small>Data Mapping</small></a></li>
+            <li  class="nav-item"><a class="nav-link"  href="#step-4">License<br /><small>  License information</small></a></li>
+            <li  class="nav-item"><a class="nav-link"  href="#step-5">Admin Information<br /><small>Your account information</small></a></li>
+            <li class="nav-item"><a class="nav-link"  href="#step-6">Installation<br /><small>Installation Process</small></a></li>
+        </ul>
+
+        <ul ng-if="init.installationtype=='update'">
+            <li class="nav-item"><a class="nav-link" href="#step-1">License Agreement<br /><small>Terms & condition</small></a></li>
+            <li  class="nav-item"><a class="nav-link"  href="#step-2">System Information<br /><small>Getting system info</small></a></li>
+            <li class="nav-item"><a class="nav-link"  href="#step-6">Installation<br /><small>Installation Process</small></a></li>
+        </ul>
+
+    <div>
+
+        <div id="step-1" class="min-height">
+            <div class="py-5">
+
+                    <h5>DhruSoft Software License Agreement </h5>
+                  <div style="height: 300px;overflow: auto">
+
+                    <p>
+                        Please read this End-User License Agreement (the "EULA")
+
+                        IMPORTANT --- READ CAREFULLY. By installing, copying, or otherwise using the Software, you are agreeing to be bound by the terms of this EULA, including the WARRANTY DISCLAIMERS, LIMITATIONS OF LIABILITY, and TERMINATION PROVISIONS. If you do not agree to the terms of this EULA do not install or use the Software.
+
+                        LICENSE TERMS
+
+                        1. The Software is supplied by DhruSoft and is licensed, not sold, under the terms of this EULA and DhruSoft reserves all rights not expressly granted to you. DhruSoft retains the ownership of the Software.
+
+                        2. Software License:
+
+                        a. DhruSoft grants you a license to use one copy of the Software. You may not modify or disable any licensing or control features of the Software.
+
+                        b. This Software is licensed to operate on only one domain.
+
+                        c. Only one company may use the Software for its intended purpose on the domain. This company may not sell the products or services of other companies in the capacity of an on-line mall or buyer service. If more than one company wishes to use the Software they must purchase a separate license.
+
+                        3. License Restrictions:
+
+                        a. By accepting this EULA you are agreeing not to reverse engineer, decompile, or disassemble the Software Application, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.
+
+                        b. You are the exclusive licensee of the Software and sharing any source code of the Software with any individual or entity is a violation of copyright laws and international treaties and cause for license termination.
+
+                        c. Modifying any portion of the Software source code or asking any individual or entity to modify the Software source code other than DhruSoft is a violation of copyright laws and international treaties and cause for license termination.
+
+                        d. If you upgrade the Software to a higher version of the Software, this EULA is terminated and your rights shall be limited to the EULA associated with the higher version.
+
+                        4. Proprietary Rights:
+
+                        All title and copyrights in and to the Software (including, without limitation, any images, photographs, animations, video, audio, music, text, and "applets" incorporated into the Software Application), the accompanying media and printed materials, and any copies of the Software are owned by DhruSoft. The Software is protected by copyright laws and international treaty provisions. Therefore, you must treat the Software like any other copyrighted material, subject to the provisions of this EULA.
+
+                        5. Termination Rights:
+
+                        Without prejudice to any other rights, DhruSoft may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the Software and all of its component parts, and DhruSoft may suspend or deactivate your use of the Software with or without notice.
+
+                        6. Export Control:
+
+                        You may not export or re-export the Software or any copy or adaptation of the Software in violation of any applicable laws or regulations.
+
+                        7. DhruSoft does not warrant that the operation of DhruSoft Software will be uninterrupted or error free. DhruSoft Software may contain third-party functions or may have been subject to incidental use.
+
+                        8. DhruSoft is not responsible for problems resulting from improper or inadequate maintenance or configuration; software or interface routines or functions NOT developed by DhruSoft unauthorized specifications for the Software; improper site preparation or maintenance; Beta Software; encryption mechanisms or routines. Good data processing procedure dictates that any program be thoroughly tested with non-critical data before relying on it. The user must assume the entire risk of using the Software. IN NO EVENT WILL DhruSoft OR ITS SUPPLIERS BE LIABLE FOR DIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST PROFIT OR LOST SAVINGS) OR OTHER DAMAGE WHETHER BASED IN CONTRACT, TORT, OR OTHERWISE EVEN IF A DhruSoft REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR FOR ANY CLAIM BY ANY THIRD PARTY. Some states or provinces do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation or exclusion may not apply to you.
+
+                        9. Submissions:
+
+                        Should you decide to transmit to DhruSoft by any means or by any media any information (including, without limitation, ideas, concepts, or techniques for new or improved services and products), whether as information, feedback, data, questions, comments, suggestions, or the like, you agree such submissions are unrestricted and shall be deemed non-confidential and you automatically grant DhruSoft and its assigns a non-exclusive, royalty-free, worldwide, perpetual, irrevocable license, with the right to sublicense, to use, copy, transmit, distribute, create derivative works of, display, and perform the same.
+
+                        10. Distribution and Backups
+
+                        a. DISTRIBUTION OF THE REGISTERED VERSION OF THE Software IS STRICTLY PROHIBITED and is a violation of United States copyright laws and international treaties punishable by severe criminal and civil penalties.
+
+                        b. You may make copies of the Registered Version of the Software for backup purposes only. All backup copies must be an exact copy of the original Software.
+
+                        11. Governing Law:
+
+                        The validity, construction, and performance of this Agreement will be governed by the substantive law of the State of Gujarat(INDIA).
+
+                        12. Refunds Policy:
+
+                        Refunds are only issued for software failure. Refunds are not issued for server failure/issues, lack of features or if your server does not meet the Software Requirements. Refunds are determined on individual circumstances and only issued once our technical staff determine that DHRU has a fault causing it to not run on your server. Installation charges are not refundable under any circumstances. Refunds are not available after 1 month from purchase date.
+                    </p>
+                  </div>
+
+                    <div class="form-row mt-3">
+                        <div class="form-group col">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input"  ng-change="checkrequired()"    ng-model="steps[0].terms" ng-true-value="true"  ng-false-value="false"  id="customCheck2">
+                                <label class="custom-control-label" for="customCheck2"  > Terms and condition </label>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <div id="step-2" class="min-height">
+            <div class="py-5 position-relative">
+
+                <div class="position-absolute cursor-pointer" style="top: 0;right:0;">
+                    <button type="button" ng-click="getsysteminfo($event)" class="btn btn-primary"><i class="fa fa-refresh"></i> Reload</button>
+                </div>
+                <div style="height: 400px;overflow: auto">
+
+                     <table>
+                        <tr ng-repeat="(key,system) in systeminfo" style="color: #777">
+                            <td>
+                                <div class="rounded-circle text-success mr-3" ng-if="system.status">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <div class="rounded-circle text-danger mr-3" ng-if="!system.status">
+                                    <i class="fa fa-remove"></i>
+                                </div>
+                            </td>
+                            <td class="{{!system.status?'text-danger':''}}">{{key}}</td>
+                            <td  class="{{!system.status?'text-danger':''}}"> <div class="px-4"> :  </div> </td>
+                            <td  class="{{!system.status?'text-danger':''}}"> <span ng-bind-html="system.info|unsafe">   </span>  <a class="text-warning" ng-if="system.link" href="{{system.link}}" target="_blank">{{system.link}}</a></td>
+                        </tr>
+                     </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="step-3" class="min-height" ng-if="init.installationtype!='update'">
+            <div class="py-5">
+
+                     <div>
+                         <div class="form-group row">
+                             <label  class="col-sm-4 col-form-label">Hostname </label>
+                             <div class="col-sm-8">
+                                <input type="text" class="form-control" ng-model="steps[2].hostname" ng-keyup="checkrequired()">
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <label  class="col-sm-4 col-form-label">Database Name</label>
+                             <div class="col-sm-8">
+                                <input type="text" class="form-control" ng-model="steps[2].databasename" ng-keyup="checkrequired()">
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <label  class="col-sm-4 col-form-label">Database username</label>
+                             <div class="col-sm-8">
+                                <input type="text" class="form-control" ng-model="steps[2].databaseusername" ng-keyup="checkrequired()">
+                             </div>
+                         </div>
+                         <div class="form-group row">
+                             <label  class="col-sm-4 col-form-label">Database password</label>
+                             <div class="col-sm-8">
+                                <input type="password" class="form-control" ng-model="steps[2].databasepassword" ng-keyup="checkrequired()">
+                             </div>
+                         </div>
+                     </div>
+
+            </div>
+        </div>
+
+        <div id="step-4"  class="min-height" ng-if="init.installationtype!='update'">
+            <div class="py-5">
+                    <div class="form-group row">
+                        <div class="col-sm-6 m-auto">
+                            <input type="text" class="form-control form-control-lg" style="font-size: 31px;width: 480px;height: auto;padding: 20px;" placeholder="License Key" ng-model="steps[3].licensekey" ng-keyup="checkrequired()">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div id="step-5"  class="min-height" ng-if="init.installationtype!='update'">
+            <div class="py-5">
+
+                    <div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Admin Directory</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  ng-model="steps[4].admindirectory" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Company Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" ng-model="steps[4].companyname" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Website url</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" ng-model="steps[4].websiteurl" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Admin Name</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="First Name" ng-model="steps[4].firstname" ng-keyup="checkrequired()">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Last Name"  ng-model="steps[4].lastname" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Admin Email</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  ng-model="steps[4].email" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Admin username</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  ng-model="steps[4].adminusername" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-4 col-form-label">Admin password</label>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" placeholder="Password" ng-model="steps[4].adminpassword" ng-keyup="checkrequired()">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="password" class="form-control" placeholder="Confirm Password"  ng-model="steps[4].adminconfirmpassword" ng-keyup="checkrequired()">
+                            </div>
+                        </div>
+                        <div ng-if="steps[4].adminconfirmpassword && (steps[4].adminconfirmpassword!=steps[4].adminpassword)" class="text-danger text-center">
+                            Password not match
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+
+        <div id="step-6"  class="min-height">
+            <div class="py-5">
+
+                <div class="text-center">
+
+                    <div   ng-if="init.installationtype!='update'">
+                        <h2 class="lg">{{init.applicationversion}}  <small>{{init.applicationrc}}</small> </h2>
+                    </div>
+
+                    <div  ng-if="init.installationtype=='update'">
+                        <h2  class="lg d-flex justify-content-between align-items-center m-auto" style="width: 500px">
+                            <div> {{init.installedversion}}  <small>{{init.installedrc}}</small> </div>
+                            <span style="font-size: 20px">&rarr;</span>
+                            <div> {{init.applicationversion}}   <small>{{init.applicationrc}}</small> </div>
+                        </h2>
+                    </div>
+
+                    <a  ng-if="init.installationtype=='new'" href="{{steps[4].websiteurl}}/{{steps[4].admindirectory}}" class="btn btn-primary">
+                        Go to Admin Panel
+                    </a>
+
+                </div>
+
+
+                <p class="text-center text-info" ng-if="!installed">
+                    Installation Process running....
+                </p>
+                <p class="text-center text-success" ng-if="installed">
+                    <span class="rounded-icon bg-success text-white mb-3 "> <i class="fa fa-check"></i> </span>
+                    Installation Successful
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-toolbar w-100 sw-toolbar sw-toolbar-bottom "  ng-if="!installed">
+
+            <button class="btn btn-secondary sw-btn-prev"  id="prev" type="button" ng-click="prevprocess()">Previous</button>
+
+            <button class="btn btn-secondary" style="float:right"   type="button" id="next" ng-disabled="!steps[step].btn"  ng-click="nextprocess($event)"  >Next</button>
+
+    </div>
+
+
+</form>
+</div>
+</div>

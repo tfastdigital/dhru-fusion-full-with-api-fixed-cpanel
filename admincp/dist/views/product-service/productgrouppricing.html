@@ -1,0 +1,162 @@
+<div class="container-fluid p-0 mt-3">
+<form ng-submit="saveproduct($event)" >
+
+<fieldset class="search-form">
+    <legend>Quick Search</legend>
+    <div class="d-flex justify-content-start align-items-center">
+        <div class="mr-3"  ng-show="!order">
+             <input type="text" ng-model="search" ng-keyup="searchservice(search)" class="form-control " placeholder="Search Service" />
+        </div>
+        <div class="mr-3" >
+            <select class="form-control  select-chosen"    ng-model="group" ng-change="getProductByGroup()">
+                <option value="">Select Group</option>
+                <option ng-repeat="(key,pg) in groups track by $index"   value="{{pg.id}}">{{pg.group_name}}</option>
+            </select>
+
+            <!--<select class="form-control" chosen ng-change="getProductByGroup()"
+                    ng-model="group"
+                    ng-options="pg.id as pg.group_name for pg in groups">
+            </select>-->
+
+        </div>
+        <div  ng-show="!order">
+            <select class="form-control w-auto d-inline-block mr-3"    ng-model="currencyid">
+                <option ng-repeat="(key,c) in currencies track by $index" value="{{c.id}}">{{c.code}} {{c.default=='1'?' - Base':''}} </option>
+            </select>
+        </div>
+
+        <div class="ml-auto d-flex">
+            <div class="custom-control custom-checkbox" ng-show="!order">
+                <input type="checkbox" class="custom-control-input" id="customCheckstatus"  ng-model="status">
+                <label class="custom-control-label" for="customCheckstatus"> Display Enable/Disable Service </label>
+            </div>
+
+            <div class="custom-control custom-checkbox ml-4">
+                <input type="checkbox" class="custom-control-input" id="customCheckorder"  ng-model="order">
+                <label class="custom-control-label" for="customCheckorder"> Set Order </label>
+            </div>
+
+        </div>
+    </div>
+</fieldset>
+
+
+    <table class="table border-bottom" ng-if="!order">
+        <thead>
+        <tr>
+
+            <th>Service Name</th>
+            <th> </th>
+            <th>Purchase Cost</th>
+            <th>API price</th>
+
+            <th  ng-repeat="g in  clientgroup | toArray  | orderBy:'display'" class="nowrap text-center">{{g.groupname}} <br/> <span>[{{currencies[currencyid].code}}]</span>  </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr  ng-repeat="(pid,p) in products | orderBy:'sort' track by  $index">
+            <td class="border-right" title="{{p.groupstatuspartial?'Some group has been disabled':''}}" >
+                <div class="custom-control service-name custom-checkbox {{p.groupstatuspartial?'partial':''}}" >
+                    <input type="checkbox" class="custom-control-input" id="customCheck{{$index}}"  ng-model="p.groupstatus" ng-change="setGroupStatus(p)"  ng-true-value="'1'"  ng-false-value="'0'">
+                    <label class="custom-control-label" for="customCheck{{$index}}">{{p.product.service_name}} </label>
+                    <a ng-click="editimeiservice(p)" class="show-on-hover cursor-pointer"><i class="fa fa-edit"></i></a>
+                </div>
+
+            </td>
+            <td class="text-center text-muted">
+                <a ng-click="popup('#/grouppricing/'+p.product.productid)"  class="cursor-pointer"><i class="fa fa-dollar"></i></a>
+                <!--<input type="text" class="form-control"    ng-model="p.product.time"   placeholder="{{cg.code}}"/>-->
+            </td>
+            <td class="border-left price">
+                <input type="text" class="form-control"   format="currency" symbol="{{defaultcurrency.code}}"  ng-model="p.product.purchase_cost"   placeholder="Purchase"/>
+            </td>
+            <td class="text-center border-left price">
+                <div>
+                    <b>{{p.product.apipriceinsystemcurrency|currency:defaultcurrency.code}}</b>
+                </div>
+                <i class="fa fa-check-circle text-info" ng-if="p.product.autoapi=='1'"></i>
+            </td>
+
+
+            <td ng-repeat="(key,c) in  p.pricing[0] | toArray  | orderBy:'display' " class="text-center price bg-{{c.__key}}">
+
+                <div class="d-flex align-items-center text-center">
+
+                    <div class="custom-control custom-checkbox" ng-show="status">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1{{pid}}{{key}}"  ng-change="setProductStatus(p)"   ng-model="p.status[c.__key]"  ng-true-value="'1'"  ng-false-value="'0'">
+                        <label class="custom-control-label" for="customCheck1{{pid}}{{key}}">   </label>
+                    </div>
+
+
+                    <div class="text-center w-100  {{p.product.apipriceinsystemcurrency>c.currency[currencyid].price?'text-danger':''}}" ng-if="p.product.autoapi=='0'">
+
+                        <div ng-if="c.currency[currencyid].price || (c.__key=='base' && defaultcurrency.id == currencyid)">
+                            <input type="text" class="form-control"   format="currency" symbol="{{currencies[currencyid].code}}"  ng-required="defaultcurrency.id == currencyid" ng-model="c.currency[currencyid].price" ng-change="setOtherGroupPrice(p,c.currency[currencyid].price,c.__key)"  placeholder="Price"/>
+                        </div>
+                        <div ng-if="!c.currency[currencyid].price"   title="Double click to update price"  ng-click="c.change=true;c.currency[currencyid].price = (currencies[currencyid].rate*c.baseprice)">
+                            <i class="text-muted">{{(currencies[currencyid].rate*p.pricing[0]['base']['baseprice'])|currency:currencies[currencyid].code}}</i>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center w-100 cursor-pointer {{p.product.apipriceinsystemcurrency>c.autobaseprice?'text-danger':''}}" ng-if="p.product.autoapi=='1'" title="Auto API Price Enable" ng-click="popup('#/grouppricing/'+p.product.productid)">
+                        <i ng-if="c.increment.value">  {{(currencies[currencyid].rate*c.autobaseprice)|currency:currencies[currencyid].code}} </i>
+                        <i ng-if="!c.increment.value">  {{(currencies[currencyid].rate*p.pricing[0]['base']['autobaseprice'])|currency:currencies[currencyid].code}} </i>
+
+                        <div ng-if="c.increment.value">
+                            <small class="text-muted"  ng-show="c.increment.value>0">+</small>
+                            <small class="text-muted" ng-if="c.increment.type == 'Percentage'">
+                                {{c.increment.value}}%
+                            </small>
+                            <small class="text-muted" ng-if="c.increment.type == 'Fixed'">
+                                {{c.increment.value|currency:defaultcurrecy.code}}
+                            </small>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+    <table class="table border-bottom" id="items"  ng-if="order">
+        <thead>
+        <tr>
+            <th>Service Name</th>
+        </tr>
+        </thead>
+        <tbody ng-model="sortproducts" as-sortable="sortableOptions">
+
+            <tr  ng-repeat="(pid,p) in sortproducts" as-sortable-item>
+                <td class="border-right"   as-sortable-item-handle  >
+                    {{p.service_name}}
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <div class="p-2 fixed-action-bar">
+        <div class="d-flex justify-content-start align-items-center">
+            <div class="custom-control custom-checkbox mr-3">
+                <input type="checkbox" class="custom-control-input" id="telegram"  ng-init="telegram='1'"    ng-model="telegram"  ng-true-value="'1'"  ng-false-value="'0'">
+                <label class="custom-control-label" for="telegram"> Send Price Notification on Telegram  </label>
+            </div>
+            <button type="submit" class="btn btn-dark">Apply</button>
+        </div>
+    </div>
+</form>
+</div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>

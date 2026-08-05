@@ -1,0 +1,99 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+$pageid = 517;
+checkPagePermission($pageid);
+include DATAGRID_DIR . "comm.php";
+if (isset($_GET["rid"])) {
+    echo "<div id='tabcontent'>";
+    $DEL = explode("-", $_GET["rid"]);
+    if (count($DEL)) {
+        foreach ($DEL as $d) {
+            dquery("DELETE FROM tbl_prd WHERE ID='" . $d . "'");
+        }
+        echo "<div id='notification' class='successbox'>" . $LNG["datadeletesuccessfully"] . "</div>";
+    }
+}
+echo " \n<div id=\"content\">\n<div id=\"notification\"></div>\n<div id=\"content_padded\">\n<form id=\"frm\" name=\"\" method=\"post\">\n";
+echo generate_token("form");
+echo "<table class=\"form\">\n<tbody>\n\n<tr>\n    <td class=\"fieldlabel\">PRD </td>\n    <td class=\"fieldarea\">\n\n<input type=\"text\" name=\"prd\" />\n  </td>\n</tr>\n<tr>\n    <td   class=\"fieldlabel\">";
+echo $LNG["mep"];
+echo " </td>\n    <td class=\"fieldarea\"><input type=\"text\" name=\"mep\" /></td>\n</tr>\n<tr>\n    <td class=\"fieldlabel\"> </td>\n    <td class=\"fieldarea\"><input value=\"+ ";
+echo $LNG["add"];
+echo "\"  id=\"btnaddgroup\" class=\"btn add\" type=\"button\" \n    onclick=\"SubmitForm ('#btnaddgroup','prd','#frm','#notification','true','#main_loader');\"/> \n</td>\n</tr>\n</tbody>\n</table>\n\n\n</form>\n\n\n</div></div>\n \n";
+$sql = "SELECT  tbl_prd.id, \nprd,mep,\nCONCAT('<a class=\\'default_dg_a2 editdata\\' href=\"javascript: void(0)\" \n   onclick=\"load_subpage(\\'includes/pages/editprd.php?id=',tbl_prd.id,'\\', \\'" . $LNG["edit"] . " PRD\\');    return false;\" >" . $LNG["edit"] . "</a>') as action_links\nFROM tbl_prd where 1=1 ";
+if ($debug_output) {
+    $debug_mode = true;
+} else {
+    $debug_mode = false;
+}
+$messaging = true;
+$unique_prefix = "";
+$dgrid = new DataGrid($debug_mode, $messaging, $unique_prefix, DATAGRID_DIR);
+$default_order_field = "id";
+$default_order_type = "ASC";
+$dgrid->DataSource($db_conn, $sql, $default_order_field, $default_order_type);
+$ajax_option = true;
+$dgrid->AllowAjax($ajax_option);
+$layouts = ["edit" => "0", "details" => "0", "filter" => "1"];
+$dgrid->SetLayouts($layouts);
+$modes = ["add" => ["view" => false, "edit" => false, "type" => "link", "show_add_button" => "inside|outside"], "edit" => ["view" => false, "edit" => false, "type" => "link", "byFieldValue" => ""], "cancel" => ["view" => false, "edit" => true, "type" => "link"], "details" => ["view" => false, "edit" => false, "type" => "link"], "delete" => ["view" => false, "edit" => true, "type" => "image"], "deleting" => ["view" => false, "edit" => true, "type" => "image"]];
+$dgrid->SetModes($modes);
+$multirow_option = true;
+$dgrid->AllowMultirowOperations($multirow_option);
+$multirow_operations = ["edit" => ["view" => false], "details" => ["view" => false], "delete" => ["view" => false], "deleting" => ["view" => true, "flag_name" => "deleting", "flag_value" => "yes", "tooltip" => (string) $LNG["deleteselected"]]];
+$dgrid->SetMultirowOperations($multirow_operations);
+$http_get_vars = ["page", "accesskey", "display_errors", "pass"];
+$dgrid->SetHttpGetVars($http_get_vars);
+$dg_caption = "";
+$dgrid->SetCaption($dg_caption);
+$printing_option = true;
+$dgrid->AllowPrinting($printing_option);
+$exporting_option = true;
+$exporting_directory = "tmp/";
+$dgrid->AllowExporting($exporting_option, $exporting_directory);
+$exporting_types = ["excel" => "true", "pdf" => "true", "xml" => "true"];
+$dgrid->AllowExportingTypes($exporting_types);
+$paging_option = true;
+$rows_numeration = false;
+$numeration_sign = "N #";
+$dropdown_paging = true;
+$dgrid->AllowPaging($paging_option, $rows_numeration, $numeration_sign, $dropdown_paging);
+$bottom_paging = ["results" => true, "results_align" => "left", "pages" => true, "pages_align" => "center", "page_size" => true, "page_size_align" => "right"];
+$top_paging = [];
+$pages_array = ["5" => "5", "10" => "10", "25" => "25", "50" => "50", "100" => "100", "250" => "250", "500" => "500", "1000" => "1000"];
+$default_page_size = 10;
+$paging_arrows = ["first" => "|&lt;&lt;", "previous" => "&lt;&lt;", "next" => "&gt;&gt;", "last" => "&gt;&gt;|"];
+$dgrid->SetPagingSettings($bottom_paging, $top_paging, $pages_array, $default_page_size, $paging_arrows);
+$filtering_option = true;
+$show_search_type = true;
+$dgrid->AllowFiltering($filtering_option, $show_search_type);
+$fill_from_status = ["1" => "Enable", "0" => "Disable"];
+$filtering_fields = ["PRD" => ["type" => "textbox", "autocomplete" => "false", "maxresults" => "10", "shownoresults" => "false", "table" => "tbl_prd", "field" => "prd", "show_operator" => "false", "default_operator" => "like%", "case_sensitive" => "false", "comparison_type" => "string", "width" => "220px", "on_js_event" => ""], "MEP" => ["type" => "textbox", "autocomplete" => "false", "maxresults" => "10", "shownoresults" => "false", "table" => "tbl_prd", "field" => "mep", "show_operator" => "false", "default_operator" => "like%", "case_sensitive" => "false", "comparison_type" => "string", "width" => "220px", "on_js_event" => ""]];
+$dgrid->SetFieldsFiltering($filtering_fields);
+$vm_table_properties = ["width" => "100%"];
+$dgrid->SetViewModeTableProperties($vm_table_properties);
+$vm_colimns = ["id" => ["header" => (string) $LNG["id"], "type" => "label", "align" => "left", "wrap" => "wrap", "text_length" => "20", "case" => "normal"], "prd" => ["header" => "PRD", "type" => "label", "align" => "left", "wrap" => "nowrap", "text_length" => "-1", "case" => "normal"], "mep" => ["header" => (string) $LNG["mep"], "type" => "label", "align" => "left", "wrap" => "nowrap", "text_length" => "555", "case" => "normal"], "action_links" => ["header" => (string) $LNG["actions"], "type" => "label", "align" => "right", "width" => "100px", "wrap" => "nowrap", "text_length" => "-1", "tooltip" => true, "tooltip_type" => "simple", "case" => "normal", "sort_by" => "", "visible" => "true", "on_js_event" => ""]];
+$dgrid->SetColumnsInViewMode($vm_colimns);
+$em_table_properties = ["width" => "75%"];
+$dgrid->SetEditModeTableProperties($em_table_properties);
+$dm_table_properties = ["width" => "60%"];
+$dgrid->SetDetailsModeTableProperties($dm_table_properties);
+$table_name = "tbl_prd";
+$primary_key = "id";
+$condition = "";
+$dgrid->SetTableEdit($table_name, $primary_key, $condition);
+$dgrid->WriteCssClass();
+$dgrid->Bind();
+if (isset($_GET["rid"])) {
+    echo "</div>";
+}
+echo "\n\n";
+$fileverioncheck = "6.1.0";
+
+?>

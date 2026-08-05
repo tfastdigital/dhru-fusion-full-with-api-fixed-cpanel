@@ -1,0 +1,12 @@
+/configs/config.php
+/configs/*.php
+/php.ini
+/error_log
+/admincp/error_log
+/templates_c/
+/DHRU FUSION/tmp/
+/DHRU FUSION/*.log
+*.DS_Store
+Thumbs.db
+*.bak
+*.zip

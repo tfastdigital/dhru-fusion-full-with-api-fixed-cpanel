@@ -1,0 +1,167 @@
+body,.dropdown-menu,.navbar-products .nav-item:hover,.bg-gray,
+h3.h3 span:before,.carousel.slide-products,.form-control,
+.carousel-indicator-img li,.carousel-indicators .active,
+.input-group-text,.list-group-item,
+.sidebar .catloglist input[type="text"],
+.chosen-container-single .chosen-single,
+.chosen-container .chosen-drop,
+.theme-settings-icon,
+.serchcontent,
+.page-index header
+{
+    background: #222 !important;
+    color: #c3c3c3;
+}
+.header-top {
+    border-bottom-color: #1b1b1b ;
+}
+a{
+    color:#d9d9d9
+}
+.header-bottom,.footer-top{
+    background: #2a2a2a;
+}
+.navbar-expand-lg .navbar-nav .nav-item:hover .nav-link{
+    color: #d2d2d2;
+}
+.bg-hover:hover, .bg-hover:focus, .dropdown-item:focus, .dropdown-item:hover{
+    background: #3e3e3e !important;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #a0a0a0;
+}
+.navbar-products .nav-item:hover .nav-link,.nav.navbar-light .nav-link,a:hover{
+    color:white
+}
+.bg-svg{
+    background: none !important;
+}
+.dropdown-header{
+    color: #474747;
+}
+.dropdown-item{
+    color:#bebebe;
+}
+.checkbox .helper::before, .checkbox .helper::after{
+    background: white;
+}
+.card,.card-product .product-info{
+    background: transparent;
+}
+.card{
+    padding:1rem !important;
+}
+.checkbox input:checked ~ .helper,input[type="button"], select, input[type="text"], textarea,.form-control:focus {
+    color:white;
+}
+.card-product .service-name, .card-product .truncate-text {
+    color: #dddddd;
+}
+.modal-content{
+    background: #282828;
+}
+h3.h3:after, h3.h3:before {
+    border-bottom-color: #2f2f2f ;
+}
+h3.h3.box-white span:before{
+    background: #2a2a2a !important;
+}
+.border,.border-left,.border-right,.border-top,.border-bottom,.form-control,ul.nav-pills.flex-nowrap,.menu-column, .submenu-column,
+h3.h3.box-white:after, h3.h3.box-white:before,
+.sidebar .cart,
+.card-product .card-body
+{
+    border-color: #605f5f!important;
+}
+.bg-white {
+    background-color: #222!important;
+}
+
+.text-dark,.navbar-toggler {
+    color: #adadad!important;
+}
+
+ul.nav-pills.flex-nowrap .nav-link.active {
+    color: white;
+    border-bottom-color:#5f5e5e;
+}
+.modal-header{
+    background: #383838;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: transparent !important;
+}
+.header-top .nav-item:hover,.sidebar .cart{
+    background: transparent;
+}
+
+.btn,.menu.selected, .page-size.selected,.btn.btn-light{
+    background: black !important;
+    color: white !important;
+    border-color: black;
+}
+.reloadcaptcha{
+    background-color:#222;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(62, 62, 62, 0.25);
+}
+.table,.bg-light,.card.card-product:hover, .card.card-product .product-info {
+    background: #181818 !important;
+}
+.table th ,.table td{
+    border-bottom-color:#2a2a2a !important;
+    border-top-color:#2a2a2a !important;
+}
+
+.chosen-container-single .chosen-single,.chosen-container .chosen-drop,.dropdown-divider,.modal-menu .dropdown-item,
+.modal-menu .catloglist li.maincategory > a, .modal-menu .catloglist > li.nocategory > a
+{
+    border-color: #5f5e5e;
+    color: white !important;
+}
+
+
+.serchcontent li.dropdown-item a,.serchcontent,hr.dashed,.carousel-indicator-img li ,.input-group-text,.list-group-item,.chosen-container .chosen-results li,.chosen-container-single .chosen-search input[type=text],.sidebar .catloglist input[type="text"] {
+    border-color: #5f5e5e;
+    color:white;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single{
+    box-shadow: 0 1px 0 #2c2a2a inset;
+}
+.table tbody+tbody {
+    border-top-color: #1d1d1d;
+}
+
+.modal-theme-settings .bg-svg{
+    border-color: #373737;
+}
+
+.table-striped tbody tr:nth-of-type(odd){
+    background: #141414;
+}
+.page-link{
+    background-color: #222;
+    border-color: #2a2a2a;
+}
+.pagination{
+    border-top-color: #2a2a2a;
+}
+.tcs-select {
+    background-color: #292929 !important;
+}
+.modal-menu .nav-link.dropdown-toggle{
+    border-bottom-color: #353535;
+    background: #060606;
+}
+
+@media (max-width: 992px){
+    .d-actionbar-mobile {
+        background: #333333;
+        border-top: #222 solid 1px;
+    }
+    header{
+        background: #222222;
+    }
+}

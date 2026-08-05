@@ -1,0 +1,239 @@
+<div class="container-fluid px-3">
+<form ng-submit="saveproduct($event)">
+
+
+
+<div>
+
+
+    <h3 class="m-3">Pricing :: {{::product.service_name}}</h3>
+    <table class="table">
+        <tr ng-if="product.cansetauto == '1'">
+            <td>
+                <div class="custom-control custom-checkbox">
+                    <input type="text" class="d-none" name="productid" ng-model="product.productid" />
+                    <input type="hidden" name="autoapi" value="0" />
+                    <input type="checkbox" class="custom-control-input"  ng-change="switchautotomanual(product.autoapi,$event);" name="autoapi" value="1" ng-model="product.autoapi" ng-true-value="'1'" ng-false-value="'0'" id="customCheckautoapi">
+                    <label class="custom-control-label" for="customCheckautoapi"> Auto Update Price from APi  </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Price from API :   <b> {{product.apiprice|currency:product.apicurrencycode}} </b> <span ng-if="defaultcurrency.code!=product.apicurrencycode"> &nbsp;&nbsp;&nbsp; ({{product.apipriceinsystemcurrency|currency:defaultcurrency.code}})</span> </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex justify-content-start align-items-center">
+                    <div>
+                        Qnt Range :
+                        <select class="form-control w-auto d-inline-block"   ng-model="pricingrange" ng-change="setPricing()">
+                            <option ng-repeat="(key,rg) in servicerange track by $index" value="{{rg.pricingqntid}}">{{rg.start}} - {{rg.end}}</option>
+                            <option value="addnew">Add New</option>
+                        </select>
+                    </div>
+                    <div><a class="text-danger cursor-pointer ml-3" ng-click="deleteservicerange()">delete</a></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+<table class="table border-bottom" ng-if="product.autoapi == '1'">
+    <thead>
+    <tr>
+
+        <th>
+
+        </th>
+        <th>
+
+        </th>
+        <th  ng-repeat="c in  currencies  track by  $index" class="nowrap text-center">
+            {{::c.code}} <span ng-if="c.default =='1'">*</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody >
+
+    <tr   ng-repeat="(key,g) in pricing | toArray | orderBy:'display'  track by  $index" class="bg-{{g.class}}">
+
+        <th class="nowrap border-right">
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck{{key}}"  ng-model="g.status" ng-true-value="'1'"  ng-false-value="'0'">
+                <label class="custom-control-label" for="customCheck{{key}}">{{::g.name}} </label>
+            </div>
+
+        </th>
+
+        <td>
+            <div class="form-inline">
+                <div class="text-left no-wrap cursor-pointer" ng-if="g.increment.default==='1'" ng-click="g.increment.default=''">
+
+                    <span ng-if="defaultcurrency.code!=product.apicurrencycode"> {{product.apipriceinsystemcurrency|currency:defaultcurrency.code}}</span>
+                    <span ng-if="defaultcurrency.code==product.apicurrencycode"> {{product.apiprice|currency:product.apicurrencycode}}</span>
+                    <span ng-if="g.increment.type=='Fixed'">
+                         + {{g.increment.value|currency:product.apicurrencycode}}
+                    </span>
+                    <span ng-if="g.increment.type=='Percentage'">
+                        + {{g.increment.value}}%
+                    </span>
+                </div>
+                <div ng-if="!g.increment.default" class="no-wrap">
+
+                    <input type="text" class="form-control mr-2 mb-2"  ng-required="g.class=='base'"  ng-model="g.increment.value" ng-change="calculatemargin(g)" style="max-width: 80px"> <!-- ng-required="g.class=='base'"-->
+
+                    <select ng-model="g.increment.type"   ng-init="g.increment.type = g.increment.type?g.increment.type:'Percentage'" class="form-control mb-2" ng-change="calculatemargin(g)">
+                        <option value="Percentage">Percentage</option>
+                        <option value="Fixed">Fixed</option>
+                    </select>
+                </div>
+
+            </div>
+        </td>
+        <td ng-repeat="c in g.currency  track by  $index" class="text-center">
+            <div class="price cursor-default">
+                 <div ng-if="(g.increment.type=='Percentage' || g.increment.type=='Fixed') && g.increment.value"> <i class="text-muted"> {{c.auto|currency:c.code}} </i> </div>
+                 <div ng-if="!g.increment.value"> <i class="text-muted"> {{pricing['base'].autobaseprice*c.rate|currency:c.code}}  </i> </div>
+            </div>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+
+    <table class="table border-bottom" ng-if="product.autoapi == '0'">
+        <thead>
+        <tr>
+
+            <th>
+
+            </th>
+            <th  ng-repeat="c in  currencies  track by  $index" class="nowrap text-center">{{c.code}} <span ng-if="c.default =='1'">*</span> </th>
+        </tr>
+        </thead>
+        <tbody >
+
+            <tr   ng-repeat="(key,g) in pricing | toArray | orderBy:'display' track by  $index" class="bg-{{g.class}}">
+
+                <th class="nowrap border-right">
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2{{key}}"  ng-model="g.status"  ng-true-value="'1'"  ng-false-value="'0'">
+                        <label class="custom-control-label" for="customCheck2{{key}}">{{::g.name}} </label>
+                    </div>
+
+                </th>
+
+                <td ng-repeat="c in g.currency  track by  $index" class="text-center">
+                    <div class="price">
+                        <div ng-if="c.default == '1'">
+                            <input type="hidden"  ng-model="g.baseprice" />
+                            <input type="text" class="form-control"   format="currency" symbol="{{c.code}}"  ng-required="g.class=='base'"  ng-model="g.baseprice" ng-change="c.price=g.baseprice;setOtherCurrency(g)"  placeholder="{{c.code}}"/>
+                        </div>
+                        <div ng-if="c.default == '0'">
+                            <div ng-click="c.auto=0;c.change=true" class="text-muted cursor-pointer"   ng-if="!c.change"> <i> {{c.auto|currency:c.code}} </i> </div>
+                            <div ng-if="c.change">
+                                <input type="text"  class="form-control"  format="currency" symbol="{{c.code}}"  ng-blur="changePrice(c,g)"  ng-model="c.auto"    placeholder="{{c.code}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+
+
+    <div class="p-2 fixed-action-bar">
+        <div class="d-flex justify-content-start align-items-center">
+            <div class="custom-control custom-checkbox mr-3">
+                <input type="checkbox" class="custom-control-input" ng-model="resetcustomuserprice" ng-true-value="'1'" ng-false-value="'0'" id="resetcustomuserprice">
+                <label class="custom-control-label" for="resetcustomuserprice"> Reset users custom price  </label>
+            </div>
+            <div class="custom-control custom-checkbox mr-3">
+                <input type="checkbox" class="custom-control-input" id="telegram"  ng-init="telegram='1'"    ng-model="telegram"  ng-true-value="'1'"  ng-false-value="'0'">
+                <label class="custom-control-label" for="telegram"> Send Price Notificaiton on Telegram  </label>
+            </div>
+            <button type="submit"  id="grouppricing" class="btn btn-dark">Apply</button>
+        </div>
+    </div>
+</form>
+</div>
+
+
+
+<div class="modal" id="modal-ranges" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Ranges </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="w-100 table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+
+
+
+                    <tbody>
+                        <tr ng-repeat="(key,rg) in ranges">
+                            <td  class="text-center">
+                                <div class="custom-control custom-checkbox" ng-if="!rg.exists">
+                                    <input type="checkbox" class="custom-control-input" ng-model="rg.check" ng-true-value="'1'" ng-false-value="'0'" id="customCheck1{{key}}">
+                                    <label class="custom-control-label" for="customCheck1{{key}}">   </label>
+                                </div>
+                            </td>
+                            <td  class="text-center">
+                                <input   ng-disabled="!rg.change" type="text" class="form-control" ng-model="rg.start" ng-update="updaterange(rg)" placeholder="Start">
+                            </td>
+                            <td  class="text-center">
+                                <input type="text"   ng-disabled="!rg.change"  class="form-control"  ng-model="rg.end"  ng-update="updaterange(rg)" placeholder="End">
+                            </td>
+                            <td>
+                                <div class="text-center actions cursor-pointer" ng-if="!rg.change" ng-click="rg.change=true"> <i class="fa fa-pencil"></i>  </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="bg-light">
+                        <tr class="addnew" ng-show="addmore">
+                            <td colspan="2"> <input type="text" class="form-control" ng-model="add.start" placeholder="Start"> </td>
+                            <td> <input type="text" class="form-control"  ng-model="add.end" placeholder="End"> </td>
+                            <td> <button class="btn btn-success" ng-click="addrange($event)" >Add </button> </td>
+                        </tr>
+                        <tr  ng-show="!addmore">
+                            <td colspan="4">
+                                <button class="btn" ng-click="addmore=true" >Add More</button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary btn-sm" ng-click="insertToranges()">Insert to service</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>

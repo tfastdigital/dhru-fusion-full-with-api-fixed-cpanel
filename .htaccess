@@ -1,0 +1,73 @@
+# Product    : DHRU Fusion - https://www.dhru.com/dhru-fusion/
+# Email      : info@dhru.com
+# Copyright (c) 2008-22 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess Index Version    : 8.1
+
+#Options +FollowSymlinks
+RewriteEngine On
+
+# Force SSL(HTTPS) Redirect
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+# redirect non-www to www http/https (if api folder won't redirect just remove '#' from 1st line too )
+#RewriteCond %{REQUEST_URI} !/api
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+#RewriteCond %{HTTPS} on
+#RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+# redirect www to non-www http/https (if api folder won't redirect just remove '#' from 1st line too )
+#RewriteCond %{REQUEST_URI} !/api
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+#RewriteCond %{HTTPS} on
+#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+
+RewriteBase /
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
+
+<ifModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</ifModule>
+
+<ifModule mod_headers.c>
+    <filesMatch "\\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|ttf|otf|woff|woff2|eot|svg)$">
+    Header set Cache-Control "max-age=2592000, public"
+    </filesMatch>
+    <filesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=604800, public"
+    </filesMatch>
+    <filesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=216000, private"
+    </filesMatch>
+    <filesMatch "\\.(xml|txt)$">
+    Header set Cache-Control "max-age=216000, public, must-revalidate"
+    </filesMatch>
+    <filesMatch "\\.(html|htm|php)$">
+    Header set Cache-Control "max-age=1, private, must-revalidate"
+    </filesMatch>
+</ifModule>

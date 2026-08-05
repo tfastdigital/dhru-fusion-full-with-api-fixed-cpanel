@@ -1,0 +1,100 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+define("DEFINE_MY_ACCESS", true);
+define("DEFINE_DHRU_FILE", true);
+define("CLIENT", true);
+define("SSLON", true);
+require "../../comm.php";
+$position = preg_replace("/[^0-9\\-a-zA-Z]/i", "", $position);
+if (!$position) {
+    $position = $config["livehelp_position"];
+}
+$config["siteurl"] = $config["config_ssl_allow"] ? $config["config_ssl_allow"] : $config["site_address"];
+$sessid = session_id();
+$_myunikrtr = substr($sessid, 0, 8);
+if ($chatpromt) {
+    $sql = mysqli_fetch_assoc(dquery("select invite,invite_msg from tbl_visitors where sessionid='" . $sessid . "' and invite='1'"));
+    if ($sql) {
+        echo "1++++" . $sql["invite_msg"];
+        exit;
+    }
+}
+$status = "Offline";
+$sql = dquery("select * from tbl_support_department where status='1' AND `livehelp`=1");
+while ($row = mysqli_fetch_assoc($sql)) {
+    $online = mysqli_num_rows(dquery("select id from tbl_admin where online='1' and\r\n     (chatdepartment like '%," . $row["id"] . ",%' or chatdepartment like '" . $row["id"] . ",%' OR chatdepartment like '%," . $row["id"] . "' OR chatdepartment='" . $row["id"] . "') and onlinestatus='available'"));
+    if ($online) {
+        $status = "Online";
+    }
+}
+$type = base64_decode($type);
+$type = preg_replace("/[^0-9\\,a-zA-Z]/i", "", $type);
+if ($type == "text") {
+    $link = "Live Support " . $status;
+} else {
+    if ($type == "html") {
+        $link = "<img src=" . $config["siteurl"] . "/images/" . $status . ".png" . " border=\"0\" />";
+    } else {
+        if ($onlystatus) {
+            echo "url(" . $config["siteurl"] . "/images/live_" . $status . ".png)";
+            exit;
+        }
+        if ($position == "rightbottom") {
+            $link = "<div id=\"liveinner\" style=\"position: fixed; !important;  bottom: 0px !important;right:10px !important; z-index: 19999 !important;background-image: url(" . $config["siteurl"] . "/images/live_" . $status . "_b.png); background-position: center; background-repeat: no-repeat;width:110px;height:40px\"></div>";
+        } else {
+            if ($position == "left") {
+                $link = "<div id=\"liveinner\" style=\"position: fixed; !important; top: 40% !important;left:0px !important; z-index: 19999 !important;background-image: url(" . $config["siteurl"] . "/images/live_" . $status . ".png); background-position: center; background-repeat: no-repeat;width:40px;height:110px\"></div>";
+            } else {
+                if ($position == "right") {
+                    $link = "<div id=\"liveinner\" style=\"position: fixed; !important; top: 40% !important;right:0px !important; z-index: 19999 !important;background-image: url(" . $config["siteurl"] . "/images/live_" . $status . "_rc.png); background-position: center; background-repeat: no-repeat;width:40px;height:110px\"></div>";
+                } else {
+                    if ($position == "leftbottom") {
+                        $link = "<div id=\"liveinner\" style=\"position: fixed; !important; bottom: 0px !important;left:10px !important; z-index: 19999 !important;background-image: url(" . $config["siteurl"] . "/images/live_" . $status . "_b.png); background-position: center; background-repeat: no-repeat;width:110px;height:40px\"></div>";
+                    } else {
+                        $link = "<div id=\"liveinner\" style=\"display:none\"></div>";
+                    }
+                }
+            }
+        }
+    }
+}
+$flotdiv = "<div id=\"flt" . $_myunikrtr . "\" style=\" display: none; position:absolute;width:350px;min-height: 50px; top:45%; right:45%;padding:20px;background:#FFFFFF;  border:5px solid #2266AA;   z-index:8000;-webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;\" > <h1 style=\"color: #666; font-family: aril; font-size: 22px; border-bottom: 1px solid #ccc; line-height: 40px; margin-top: -10px; \">Can I help you?</h1><div style=\"margin-top: -10px;\"><span style=\"color: #666; font-family: inherit; font-size: 12px;\">Our agents are ready to assist you. Click \"Chat Now\" to be connected to one instantly.</span></div><div id=\"msg" . $_myunikrtr . "\"></div><div style=\"color: #666; font-family: Arial,Lucida Grande, Helvetica, Verdana, sans-serif; \"><a style=\"text-decoration: none; color: #666;\" href=\"javascript:void(0);\" onclick=\"chatnow();\" target=\"_blank\"><div style=\" float: left; padding: 5px; width: 150px; margin-top: 10px;\"><strong>Chat Now</strong></div></a> <a style=\"text-decoration: none; color: #666;\" onclick=\"clsChhxxepsx();\" href=\"javascript:void(0);\"> <div align=\"right\" style=\"margin-top: 10px;float: right;padding: 5px; width: 150px;\">No thank you</div></a></div></div> ";
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Content-type: text/javascript");
+echo "//===============================\r\n// Dhru\r\n// Copyright (c) 2001-2012\r\n\r\n// http://www.dhru.com\r\n// License: http://www.dhru.com/license\r\n//===============================\r\n\r\nvar ImageUse = new Image();\r\nvar referrer = encodeURIComponent(document.referrer);\r\nfunction loadStatus(divid,visitortrack)\r\n{\r\n    document.getElementById(divid).innerHTML='<a href=\"javascript:void(0);\" onclick=\"window.open(\\'";
+echo $config["siteurl"];
+echo "/livechat.php\\', \\'windowname1\\', \\'width=600, height=700\\'); return false;\" target=\"_blank\" >";
+echo $link;
+echo "</a> ";
+echo $flotdiv;
+echo "';\r\n    setInterval(\"updateStatus()\",30000);\r\n    setInterval(\"fltCzmopszqqwo()\",30000);\r\n    if(visitortrack==\"true\")\r\n    {\r\n        addV();\r\n    }\r\n}\r\nfunction clsChhxxepsx(){\r\n    updateurl = '";
+echo $config["siteurl"];
+echo "/includes/livehelp/addv.php?cls=true';\r\n    ImageUse = new Image();\r\n\tImageUse.onload = imageLoaded;\r\n\tImageUse.src = updateurl; \r\n    document.getElementById('flt";
+echo $_myunikrtr;
+echo "').style.display = \"none\";   \r\n}\r\nfunction chatnow(){\r\n    clsChhxxepsx();\r\n    window.open('";
+echo $config["siteurl"];
+echo "/livechat.php', 'windowname1', 'width=600, height=700'); \r\n}\r\nfunction updateStatus()\r\n{\r\n    var PageTitleReg=/[^0-9,a-z,A-Z]/gi;\r\n    var finalPageTitle=document.title.replace(PageTitleReg, \" \"); \r\n    var referrer = (document.referrer);\r\n        referrer = Base64Encode(referrer);\r\n    var nowurl = (document.URL);   \r\n        nowurl = Base64Encode(nowurl);\r\n    updateurl = '";
+echo $config["siteurl"];
+echo "/includes/livehelp/addv.php?title='+finalPageTitle+'&ref='+referrer+'&nowurl='+nowurl;\r\n    ImageUse = new Image();\r\n\tImageUse.onload = imageLoaded;\r\n\tImageUse.src = updateurl;\r\n}\r\n\r\n\r\nfunction fltCzmopszqqwo()\r\n{\r\n    var xmlhttp;\r\n    if(window.XMLHttpRequest){\r\n        xmlhttp=new XMLHttpRequest();\r\n    }else{\r\n        xmlhttp=new ActiveXObject(\"Microsoft.XMLHTTP\");\r\n    }\r\n    \r\n    xmlhttp.onreadystatechange=function(){\r\n        if (xmlhttp.readyState==4 && xmlhttp.status==200){\r\n            var responce = xmlhttp.responseText;\r\n            responce = (responce).split('++++')\r\n            if(responce[0]=='1'){\r\n                document.getElementById('flt";
+echo $_myunikrtr;
+echo "').style.display = \"\";\r\n                if(responce[1]){\r\n                    document.getElementById('msg";
+echo $_myunikrtr;
+echo "').innerHTML = responce[1];\r\n                }\r\n            }\r\n        }\r\n    }\r\n    xmlhttp.open(\"GET\",\"";
+echo $config["siteurl"];
+echo "/includes/livehelp/status.php?chatpromt=true\",true);\r\n    xmlhttp.send();\r\n}\r\n\r\n\r\nfunction updateStatus()\r\n{\r\n    var xmlhttp;\r\n    if(window.XMLHttpRequest){\r\n        xmlhttp=new XMLHttpRequest();\r\n    }else{\r\n        xmlhttp=new ActiveXObject(\"Microsoft.XMLHTTP\");\r\n    }\r\n    \r\n    xmlhttp.onreadystatechange=function(){\r\n        if (xmlhttp.readyState==4 && xmlhttp.status==200){             \r\n            document.getElementById('liveinner').style.backgroundImage = xmlhttp.responseText;\r\n        }\r\n    }\r\n    xmlhttp.open(\"GET\",\"";
+echo $config["siteurl"];
+echo "/includes/livehelp/status.php?onlystatus=true\",true);\r\n    xmlhttp.send();\r\n}\r\n\r\n\r\nfunction addV()\r\n{\r\n    var PageTitleReg=/[^0-9,a-z,A-Z]/gi;\r\n    var finalPageTitle=document.title.replace(PageTitleReg, \" \"); \r\n    var referrer = (document.referrer);\r\n        referrer = Base64Encode(referrer);\r\n    var nowurl = (document.URL);   \r\n        nowurl = Base64Encode(nowurl);\r\n    updateurl = '";
+echo $config["siteurl"];
+echo "/includes/livehelp/addv.php?title='+finalPageTitle+'&ref='+referrer+'&nowurl='+nowurl;\r\n    ImageUse = new Image();\r\n\tImageUse.onload = imageLoaded;\r\n\tImageUse.src = updateurl;\r\n}\r\nfunction imageLoaded() {\r\n\tif (!ImageUse)\r\n\t{\r\n\t\treturn;\r\n\t}\r\n\tproactiveAction = ImageUse.width;\r\n\r\n\tif (proactiveAction == 3)\r\n\t{\r\n\t\tdoProactiveInline_0ukgtai1();\r\n\t} else if (proactiveAction == 4) {\r\n\t\tdisplayProactiveChatData_0ukgtai1();\r\n\t}\r\n}\r\n\r\nfunction Base64Decode(input) {\r\n\treturn Base64.decode(input);\r\n}\r\n\r\nfunction Base64Encode(input) {\r\n\treturn Base64.encode(input);\r\n}\r\n\r\nvar Base64 = {\r\n\r\n\t// private property\r\n\t_keyStr : \"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\",\r\n\r\n\t// public method for encoding\r\n\tencode : function (input) {\r\n\t\tvar output = \"\";\r\n\t\tvar chr1, chr2, chr3, enc1, enc2, enc3, enc4;\r\n\t\tvar i = 0;\r\n\r\n\t\tinput = Base64._utf8_encode(input);\r\n\r\n\t\twhile (i < input.length) {\r\n\r\n\t\t\tchr1 = input.charCodeAt(i++);\r\n\t\t\tchr2 = input.charCodeAt(i++);\r\n\t\t\tchr3 = input.charCodeAt(i++);\r\n\r\n\t\t\tenc1 = chr1 >> 2;\r\n\t\t\tenc2 = ((chr1 & 3) << 4) | (chr2 >> 4);\r\n\t\t\tenc3 = ((chr2 & 15) << 2) | (chr3 >> 6);\r\n\t\t\tenc4 = chr3 & 63;\r\n\r\n\t\t\tif (isNaN(chr2)) {\r\n\t\t\t\tenc3 = enc4 = 64;\r\n\t\t\t} else if (isNaN(chr3)) {\r\n\t\t\t\tenc4 = 64;\r\n\t\t\t}\r\n\r\n\t\t\toutput = output +\r\n\t\t\tthis._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +\r\n\t\t\tthis._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);\r\n\r\n\t\t}\r\n\r\n\t\treturn output;\r\n\t},\r\n\r\n\t// public method for decoding\r\n\tdecode : function (input) {\r\n\t\tvar output = \"\";\r\n\t\tvar chr1, chr2, chr3;\r\n\t\tvar enc1, enc2, enc3, enc4;\r\n\t\tvar i = 0;\r\n\r\n\t\tinput = input.replace(/[^A-Za-z0-9\\+\\/\\=]/g, \"\");\r\n\r\n\t\twhile (i < input.length) {\r\n\r\n\t\t\tenc1 = this._keyStr.indexOf(input.charAt(i++));\r\n\t\t\tenc2 = this._keyStr.indexOf(input.charAt(i++));\r\n\t\t\tenc3 = this._keyStr.indexOf(input.charAt(i++));\r\n\t\t\tenc4 = this._keyStr.indexOf(input.charAt(i++));\r\n\r\n\t\t\tchr1 = (enc1 << 2) | (enc2 >> 4);\r\n\t\t\tchr2 = ((enc2 & 15) << 4) | (enc3 >> 2);\r\n\t\t\tchr3 = ((enc3 & 3) << 6) | enc4;\r\n\r\n\t\t\toutput = output + String.fromCharCode(chr1);\r\n\r\n\t\t\tif (enc3 != 64) {\r\n\t\t\t\toutput = output + String.fromCharCode(chr2);\r\n\t\t\t}\r\n\t\t\tif (enc4 != 64) {\r\n\t\t\t\toutput = output + String.fromCharCode(chr3);\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\toutput = Base64._utf8_decode(output);\r\n\r\n\t\treturn output;\r\n\r\n\t},\r\n\r\n\t// private method for UTF-8 encoding\r\n\t_utf8_encode : function (string) {\r\n\t\tstring = string.replace(/\\r\\n/g,\"\\n\");\r\n\t\tvar utftext = \"\";\r\n\r\n\t\tfor (var n = 0; n < string.length; n++) {\r\n\r\n\t\t\tvar c = string.charCodeAt(n);\r\n\r\n\t\t\tif (c < 128) {\r\n\t\t\t\tutftext += String.fromCharCode(c);\r\n\t\t\t}\r\n\t\t\telse if((c > 127) && (c < 2048)) {\r\n\t\t\t\tutftext += String.fromCharCode((c >> 6) | 192);\r\n\t\t\t\tutftext += String.fromCharCode((c & 63) | 128);\r\n\t\t\t}\r\n\t\t\telse {\r\n\t\t\t\tutftext += String.fromCharCode((c >> 12) | 224);\r\n\t\t\t\tutftext += String.fromCharCode(((c >> 6) & 63) | 128);\r\n\t\t\t\tutftext += String.fromCharCode((c & 63) | 128);\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\treturn utftext;\r\n\t},\r\n\r\n\t// private method for UTF-8 decoding\r\n\t_utf8_decode : function (utftext) {\r\n\t\tvar string = \"\";\r\n\t\tvar i = 0;\r\n\t\tvar c = c1 = c2 = 0;\r\n\r\n\t\twhile ( i < utftext.length ) {\r\n\r\n\t\t\tc = utftext.charCodeAt(i);\r\n\r\n\t\t\tif (c < 128) {\r\n\t\t\t\tstring += String.fromCharCode(c);\r\n\t\t\t\ti++;\r\n\t\t\t}\r\n\t\t\telse if((c > 191) && (c < 224)) {\r\n\t\t\t\tc2 = utftext.charCodeAt(i+1);\r\n\t\t\t\tstring += String.fromCharCode(((c & 31) << 6) | (c2 & 63));\r\n\t\t\t\ti += 2;\r\n\t\t\t}\r\n\t\t\telse {\r\n\t\t\t\tc2 = utftext.charCodeAt(i+1);\r\n\t\t\t\tc3 = utftext.charCodeAt(i+2);\r\n\t\t\t\tstring += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));\r\n\t\t\t\ti += 3;\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\treturn string;\r\n\t}\r\n\r\n}\r\nvar floatingMenu={hasInner:typeof(window.innerWidth)=='number',hasElement:typeof(document.documentElement)=='object'&&typeof(document.documentElement.clientWidth)=='number'};var floatingArray=[];floatingMenu.add=function(obj,options){var name;var menu;if(typeof(obj)===\"string\")name=obj;else menu=obj;if(options==undefined){floatingArray.push({id:name,menu:menu,targetLeft:0,targetTop:0,distance:.07,snap:true})}else{floatingArray.push({id:name,menu:menu,targetLeft:options.targetLeft,targetRight:options.targetRight,targetTop:options.targetTop,targetBottom:options.targetBottom,centerX:options.centerX,centerY:options.centerY,prohibitXMovement:options.prohibitXMovement,prohibitYMovement:options.prohibitYMovement,distance:options.distance!=undefined?options.distance:.07,snap:options.snap,ignoreParentDimensions:options.ignoreParentDimensions,scrollContainer:options.scrollContainer,scrollContainerId:options.scrollContainerId})}};floatingMenu.findSingle=function(item){if(item.id)item.menu=document.getElementById(item.id);if(item.scrollContainerId)item.scrollContainer=document.getElementById(item.scrollContainerId)};floatingMenu.move=function(item){if(!item.prohibitXMovement){item.menu.style.left=item.nextX+'px';item.menu.style.right=''}if(!item.prohibitYMovement){item.menu.style.top=item.nextY+'px';item.menu.style.bottom=''}};floatingMenu.scrollLeft=function(item){if(item.scrollContainer)return item.scrollContainer.scrollLeft;var w=window;while(w!=w.parent)w=w.parent;return this.hasInner?w.pageXOffset:this.hasElement?w.document.documentElement.scrollLeft:w.document.body.scrollLeft};floatingMenu.scrollTop=function(item){if(item.scrollContainer)return item.scrollContainer.scrollTop;var w=window;while(w!=w.parent)w=w.parent;return this.hasInner?w.pageYOffset:this.hasElement?w.document.documentElement.scrollTop:w.document.body.scrollTop};floatingMenu.windowWidth=function(){return this.hasElement?document.documentElement.clientWidth:document.body.clientWidth};floatingMenu.windowHeight=function(){if(floatingMenu.hasElement&&floatingMenu.hasInner){return document.documentElement.clientHeight>window.innerHeight?window.innerHeight:document.documentElement.clientHeight}else{return floatingMenu.hasElement?document.documentElement.clientHeight:document.body.clientHeight}};floatingMenu.documentHeight=function(){var innerHeight=this.hasInner?window.innerHeight:0;var body=document.body,html=document.documentElement;return Math.max(body.scrollHeight,body.offsetHeight,html.clientHeight,html.scrollHeight,html.offsetHeight,innerHeight)};floatingMenu.documentWidth=function(){var innerWidth=this.hasInner?window.innerWidth:0;var body=document.body,html=document.documentElement;return Math.max(body.scrollWidth,body.offsetWidth,html.clientWidth,html.scrollWidth,html.offsetWidth,innerWidth)};floatingMenu.calculateCornerX=function(item){var offsetWidth=item.menu.offsetWidth;if(item.centerX)return this.scrollLeft(item)+(this.windowWidth()-offsetWidth)/2;var result=this.scrollLeft(item)-item.parentLeft;if(item.targetLeft==undefined){result+=this.windowWidth()-item.targetRight-offsetWidth}else{result+=item.targetLeft}if(document.body!=item.menu.parentNode&&result+offsetWidth>=item.confinedWidthReserve){result=item.confinedWidthReserve-offsetWidth}if(result<0)result=0;return result};floatingMenu.calculateCornerY=function(item){var offsetHeight=item.menu.offsetHeight;if(item.centerY)return this.scrollTop(item)+(this.windowHeight()-offsetHeight)/2;var result=this.scrollTop(item)-item.parentTop;if(item.targetTop===undefined){result+=this.windowHeight()-item.targetBottom-offsetHeight}else{result+=item.targetTop}if(document.body!=item.menu.parentNode&&result+offsetHeight>=item.confinedHeightReserve){result=item.confinedHeightReserve-offsetHeight}if(result<0)result=0;return result};floatingMenu.computeParent=function(item){if(item.ignoreParentDimensions){item.confinedHeightReserve=this.documentHeight();item.confinedWidthReserver=this.documentWidth();item.parentLeft=0;item.parentTop=0;return}var parentNode=item.menu.parentNode;var parentOffsets=this.offsets(parentNode,item);item.parentLeft=parentOffsets.left;item.parentTop=parentOffsets.top;item.confinedWidthReserve=parentNode.clientWidth;var obj=parentNode;var objOffsets=this.offsets(obj,item);while(obj.clientHeight+objOffsets.top<item.menu.offsetHeight+parentOffsets.top){obj=obj.parentNode;objOffsets=this.offsets(obj,item)}item.confinedHeightReserve=obj.clientHeight-(parentOffsets.top-objOffsets.top)};floatingMenu.offsets=function(obj,item){var result={left:0,top:0};if(obj===item.scrollContainer)return;while(obj.offsetParent&&obj.offsetParent!=item.scrollContainer){result.left+=obj.offsetLeft;result.top+=obj.offsetTop;obj=obj.offsetParent}if(window==window.parent)return result;var iframes=window.parent.document.body.getElementsByTagName(\"IFRAME\");for(var i=0;i<iframes.length;i++){if(iframes[i].contentWindow!=window)continue;obj=iframes[i];while(obj.offsetParent){result.left+=obj.offsetLeft;result.top+=obj.offsetTop;obj=obj.offsetParent}}return result};floatingMenu.doFloatSingle=function(item){this.findSingle(item);var stepX,stepY;this.computeParent(item);var cornerX=this.calculateCornerX(item);var stepX=(cornerX-item.nextX)*item.distance;if(Math.abs(stepX)<.5&&item.snap||Math.abs(cornerX-item.nextX)==1){stepX=cornerX-item.nextX}var cornerY=this.calculateCornerY(item);var stepY=(cornerY-item.nextY)*item.distance;if(Math.abs(stepY)<.5&&item.snap||Math.abs(cornerY-item.nextY)==1){stepY=cornerY-item.nextY}if(Math.abs(stepX)>0||Math.abs(stepY)>0){item.nextX+=stepX;item.nextY+=stepY;this.move(item)}};floatingMenu.fixTargets=function(){};floatingMenu.fixTarget=function(item){};floatingMenu.doFloat=function(){this.fixTargets();for(var i=0;i<floatingArray.length;i++){this.fixTarget(floatingArray[i]);this.doFloatSingle(floatingArray[i])}setTimeout('floatingMenu.doFloat()',20)};floatingMenu.insertEvent=function(element,event,handler){if(element.addEventListener!=undefined){element.addEventListener(event,handler,false);return}var listener='on'+event;if(element.attachEvent!=undefined){element.attachEvent(listener,handler);return}var oldHandler=element[listener];element[listener]=function(e){e=(e)?e:window.event;var result=handler(e);return(oldHandler!=undefined)&&(oldHandler(e)==true)&&(result==true)}};floatingMenu.init=function(){floatingMenu.fixTargets();for(var i=0;i<floatingArray.length;i++){floatingMenu.initSingleMenu(floatingArray[i])}setTimeout('floatingMenu.doFloat()',100)};floatingMenu.initSingleMenu=function(item){this.findSingle(item);this.computeParent(item);this.fixTarget(item);item.nextX=this.calculateCornerX(item);item.nextY=this.calculateCornerY(item);this.move(item)};floatingMenu.insertEvent(window,'load',floatingMenu.init);if(typeof(jQuery)!=='undefined'){(function(\$){\$.fn.addFloating=function(options){return this.each(function(){floatingMenu.add(this,options)})}})(jQuery)}\r\nfloatingMenu.add('flt";
+echo $_myunikrtr;
+echo "',{centerX: true,centerY: true,snap: true });";
+
+?>

@@ -1,0 +1,13 @@
+# Product    : DHRU Fusion - http://www.dhru.com/dhrufusion
+# Email      : info@dhru.com
+# Copyright (c) 2015-16 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess Api Version    : 4.1
+
+#Options +FollowSymlinks
+RewriteEngine On
+
+<ifModule mod_deflate.c>
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/json
+</IfModule>

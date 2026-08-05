@@ -1,0 +1,20 @@
+# Product    : DHRU Fusion - http://www.dhru.com/dhrufusion
+# Email      : info@dhru.com
+# Copyright (c) 2018-19 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess Gatewaycallback    : 1.1
+
+#Options +FollowSymlinks
+RewriteEngine On
+
+Order deny,allow
+Deny from all
+
+<FilesMatch "^gourlio\.php|^webmoneyresult\.php|^futuelink\.php|^walletmix\.php|^ngenius_payments\.php|^razorpay\.php|^moncash\.php|^paytabs\.php|^coinbase\.php|^paypal\.php|^zarin\.php|^payumoney\.php|^vnpay\.php|^paypal2\.php|^alipay\.php|^baokim\.php|^bitpay\.php|^ccavenue\.php|^codespay\.php|^ebaynew\.php|^googlecheckout\.php|^gsmcoin\.php|^moneybookers\.php|^paypalexpress\.php|^paytm\.php|^quickcheckout\.php|^quickpay\.php|^storepaypal\.php|^storecoinbase\.php">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+<Files ~ "\.(php2|php3|php4|php5|php6|php7|php8|php9)$">
+   Deny from all
+</Files>

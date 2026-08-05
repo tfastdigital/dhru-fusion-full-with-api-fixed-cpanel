@@ -1,0 +1,1 @@
+INSERT  IGNORE INTO `tbl_security_question` (`id`, `question`, `status`) VALUES (1,'(CaSe Sensitive) What is the make and model of your first car?',1),(2,'(CaSe Sensitive) What is the name of your childhood best friend?',1);

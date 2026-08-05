@@ -1,0 +1,18 @@
+.de77_toolbar
+{
+	border-bottom: 1px solid #ccc;
+	background-color: #F0F0F0;	
+	padding: 5px;
+}
+.de77_toolbar *
+{	
+	vertical-align: middle;
+}
+.de77_editor
+{
+	padding: 7px;
+}
+.de77_wysiwyg
+{
+	border: 1px solid #ccc;    	
+}

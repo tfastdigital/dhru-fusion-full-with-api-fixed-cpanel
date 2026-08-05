@@ -1,0 +1,21 @@
+# Product    : DHRU Fusion - http://www.dhru.com/dhrufusion
+# Email      : info@dhru.com
+# Copyright (c) 2015-16 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess Includes Version    : 8.1
+
+#Options +FollowSymlinks
+RewriteEngine On
+
+Order deny,allow
+Deny from all
+
+<FilesMatch "^cron\.php|^cron2\.php|^pipe\.php|^sheduledmail\.php|^pop\.php">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+
+<Files ~ "\.(php2|php3|php4|php5|php6|php7|php8|php9)$">
+   Deny from all
+</Files>

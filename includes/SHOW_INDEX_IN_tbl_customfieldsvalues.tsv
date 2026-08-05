@@ -1,0 +1,4 @@
+tbl_customfieldsvalues	1	fieldid_relid	1	fieldid	A	180			""	BTREE	""	""
+tbl_customfieldsvalues	1	fieldid_relid	2	relid	A	723			""	BTREE	""	""
+tbl_customfieldsvalues	1	forhistory	1	servicetype	A	723			YES	BTREE	""	""
+tbl_customfieldsvalues	1	forhistory	2	relid	A	723			""	BTREE	""	""

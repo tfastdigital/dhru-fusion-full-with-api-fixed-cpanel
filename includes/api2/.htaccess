@@ -1,0 +1,8 @@
+# Product    : DHRU Fusion - http://www.dhru.com/dhrufusion
+# Email      : info@dhru.com
+# Copyright (c) 2015-16 Dhru  . All Rights Reserved,
+# =======================================================
+# Htaccess includes/api2 Version    : 1.0
+<Files *>
+Deny from all
+</Files>

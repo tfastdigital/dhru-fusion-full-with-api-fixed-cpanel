@@ -1,0 +1,409 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{$companyname}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body style="margin:0;background: #fff;">
+
+<div>
+
+    <table  style="color:#153643;font-size:14px;width:100%;font-family: Open Sans, Helvetica, Arial, sans-serif;border:none;border-spacing:0;"><tr><td>
+
+
+        <div style="margin-left: auto;margin-right: auto;">
+
+            <div style="background: #313c42">
+                <div style="margin:auto;max-width:750px;width:100%;padding: 20px;color:#999">
+                    <table style="border-collapse: collapse;width:100%;width: 100%">
+                        <tr>
+                            <td>
+                                <img src="https://s3.ap-south-1.amazonaws.com/kb.dhru.com/images/app_icon_no_bg_32.png" style="vertical-align: middle;margin-right: 10px"/>Dhru Fusion  <span style="color:#7b7b7b"> Daily Report </span>
+                            </td>
+                            <td style="text-align: left">
+                                {$date}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div style="background: #f8971c;">
+                <div style="margin:auto;max-width:750px;width:100%;padding:20px 15px;color:white">
+                    <table style="border-collapse: collapse;width:100%">
+                        <tr>
+                            <td>
+                                <h3 style="margin: 0">Hi! admin, </h3>
+                                <h2 style="margin: 0">{$companyname}</h2>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <table style="margin:auto;max-width:750px;width:100%">
+                <tr><td style="border-bottom: #eee solid 1px">
+
+
+                    <table cellpadding="0" cellspacing="0" align="left">
+                        <tr><td>
+                            <div  style="text-align: left;">
+                                <div  style="border-radius: 5px;margin-bottom: 10px;" >
+                                    <div  style="padding:0px;" >
+                                        <h2  style="color: #2cbea5;" style="margin: 10px 0">IMEI orders</h2>
+                                        <table>
+                                            <tr>
+                                                <td> Completed </td> <td> : </td> <td> <span  style="font-size: 16px;" > {$imeicompleted} </span>  </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Pending </td><td> : </td><td> <span  style="font-size: 16px;" > {$imeipending} </span> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Rejected </td><td> : </td><td> <span  style="font-size: 16px;" > {$imeirejected} </span> </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Total </td> <td> : </td><td> <span  style="font-size: 16px;" > <b>{$totalimei}</b> </span> <div style='width:120px'></div> </td>
+                                            </tr>
+                                        </table>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        </tr>
+                    </table>
+
+                    <table cellpadding="0" cellspacing="0" align="left" style="margin: 15px 0">
+
+                        <tbody>
+                        <tr>
+                            <td><span style="color:#ccc">Top 5</span></td>
+                        </tr>
+                        {foreach from=$topimei item=foo}
+                        <tr>
+                            <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;;white-space:normal;text-align: left;border: none">
+                                <span style="font-size: 16px;"> ({$foo.cnt}) </span>
+                                <span style="color:#888">  {$foo.name}</span></td>
+
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </td>
+                </tr>
+
+                <tr>
+                    <td  style="border-bottom: #eee solid 1px">
+
+
+                        <table  cellpadding="0" cellspacing="0" align="left">
+                            <tr><td >
+                                <div  style="text-align: left;" >
+                                    <div  style="border-radius: 5px;margin-bottom: 10px;" >
+
+                                        <div  style="padding:0px;" >
+                                            <h2  style="color: #313c42;">File orders</h2>
+                                            <table>
+                                                <tr>
+                                                    <td> Completed </td> <td> : </td> <td> <span  style="font-size: 16px;" > {$filecompleted} </span>  </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Pending </td><td> : </td><td> <span  style="font-size: 16px;" > {$filepending} </span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Rejected </td><td> : </td><td> <span  style="font-size: 16px;" > {$filerejected} </span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Total </td> <td> : </td><td> <span  style="font-size: 16px;" ><b> {$totalfile}</b> </span> <div style='width:120px'></div> </td>
+                                                </tr>
+                                            </table>
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </td>
+                            </tr>
+                        </table>
+
+
+                        <table cellpadding="0" cellspacing="0" align="left"  style="margin: 15px 0">
+
+                            <tbody>
+                            <tr>
+                                <td><span style="color:#ccc">Top 5</span></td>
+                            </tr>
+                            {foreach from=$topfile item=foo}
+                            <tr>
+                                <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;;white-space:normal;text-align: left;border: none">
+                                    <span style="font-size: 16px;"> ({$foo.cnt}) </span>
+                                    <span style="color:#888">  {$foo.name} </span>
+                                </td>
+
+
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td  style="border-bottom: #eee solid 1px">
+
+                        <table  cellpadding="0" cellspacing="0" align="left">
+                            <tr><td>
+                                <div  style="text-align: left;" >
+                                    <div  style="border-radius: 5px;margin-bottom: 10px;" >
+
+                                        <div  style="padding:0px;" >
+                                            <h2  style="color: #ff5d53;">Server orders</h2>
+                                            <table>
+                                                <tr>
+                                                    <td> Completed </td> <td> : </td> <td> <span  style="font-size: 16px;" > {$servercompleted} </span>  </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Pending </td><td> : </td><td> <span  style="font-size: 16px;" > {$serverpending} </span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Rejected </td><td> : </td><td> <span  style="font-size: 16px;" > {$serverrejected} </span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Total </td> <td> : </td><td> <span  style="font-size: 16px;" > <b> {$totalserver}</b> </span> <div style='width:120px'></div> </td>
+                                                </tr>
+                                            </table>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            </tr>
+                        </table>
+
+                        <table cellpadding="0" cellspacing="0" align="left"  style="margin: 15px 0">
+
+                            <tbody>
+                            <tr>
+                                <td><span style="color:#ccc">Top 5</span></td>
+                            </tr>
+                            {foreach from=$topserver item=foo}
+                            <tr>
+                                <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;;white-space:normal;text-align: left;border: none">
+                                    <span style="font-size: 16px;"> ({$foo.cnt}) </span>
+                                    <span style="color:#888"> {$foo.name}</span>
+                                </td>
+
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+
+
+                    </td>
+                </tr>
+            </table>
+
+
+            <div style="margin:auto;max-width:750px;width:100%">
+
+                <div style="vertical-align:top;">
+                    <div  style="padding: 30px 0;" >
+
+                        <div  style="display: flex;flex-wrap: wrap;align-items:center" >
+
+                            <div  style="width: 100%;" >
+
+                                <table  style="border-collapse: collapse;width:100%;" >
+                                    <thead>
+                                    <tr>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;"><h2 style="margin: 0 0 0px 0;color:#000;white-space:nowrap;">Revenue</h2></th>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">IMEI</th>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">File</th>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">Server</th>
+                                        <th style="width: 100%"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach from=$currencyarray item=foo}
+                                    <tr>
+                                        <td  style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;;text-align: right">
+                                            <span style="font-weight:bold;">{$foo.code}</span>
+                                        </td>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$imeirevenue[$foo.code]|string_format:"%.2f"}  {if $imeirevenuecompare[$foo.code]=='high'} <span style="color: green;"><span style="font-size: 12px">({$imeiper[$foo.code]}%)</span> &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$imeiper[$foo.code]}%)</span>  &darr;</span> {/if}    </td>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$filerevenue[$foo.code]|string_format:"%.2f"}  {if $filerevenuecompare[$foo.code]=='high'} <span style="color: green;"><span style="font-size: 12px">({$fileper[$foo.code]}%)</span> &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$fileper[$foo.code]}%)</span> &darr;</span> {/if}     </td>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$serverrevenue[$foo.code]|string_format:"%.2f"} {if $serverrevenuecompare[$foo.code]=='high'} <span style="color: green;"><span style="font-size: 12px">({$serverper[$foo.code]}%)</span> &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$serverper[$foo.code]}%)</span> &darr;</span> {/if}     </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div  style="vertical-align:top;">
+                    <div  style="padding: 30px 0;" >
+
+
+                        <div  style="display: flex;flex-wrap: wrap;align-items:center" >
+
+                            <div  style="width: 100%;" >
+
+                                <table  style="border-collapse: collapse;width:100%;" >
+                                    <thead>
+                                    <tr>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;"><h2 style="margin: 0 0 0px 0;color:#000;white-space:nowrap;">Fund Added</h2></th>
+                                        <th  style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">By Admin</th>
+                                        <th  style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">By User</th>
+                                        <th style="width: 100%"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach from=$currencyarray item=foo}
+                                    <tr>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;;text-align: right">
+                                            <span style="font-weight:bold;">{$foo.code}</span>
+                                        </td>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$adminfund[$foo.code]} {if $adminfundcompare[$foo.code]=='high'} <span style="color: green;"><span style="font-size: 12px">({$adminfundper[$foo.code]}%)</span>  &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$adminfundper[$foo.code]}%)</span>  &darr;</span> {/if}  </td>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$userfund[$foo.code]} {if $userfundcompare[$foo.code]=='high'} <span style="color: green;"><span style="font-size: 12px">({$userfundper[$foo.code]}%)</span> &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$userfundper[$foo.code]}%)</span> &darr;</span> {/if}  </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div  style="vertical-align:top;">
+                    <div  style="padding: 30px 0;" >
+
+                        <div  style="display: flex;flex-wrap: wrap;align-items:center" >
+
+
+                            <div  style="width: 100%;" >
+
+
+                                <table  style="border-collapse: collapse;width:100%;" >
+                                    <thead>
+                                    <tr>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;"><h2 style="margin: 0 0 0px 0;color:#000;white-space:nowrap;">Users</h2></th>
+                                        <th  style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">Active Login</th>
+                                        <th  style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;">New signup</th>
+                                        <th style="width: 100%"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td  style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;">
+
+                                        </td>
+                                        <td  style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$loginuser} {if $loginuserstatus=='high'} <span style="color: green;"><span style="font-size: 12px"> ({$loginuserper}%) </span> &uarr; </span>  {else} <span style="color: red;"><span style="font-size: 12px">({$loginuserper}%)</span> &darr;</span> {/if} </td>
+                                        <td  style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;">{$newuser} {if $newuserstatus=='high'} <span style="color: green;"> <span style="font-size: 12px">({$newuserper}%)</span> &uarr; </span>  {else} <span style="color: red;"> <span style="font-size: 12px">({$newuserper}%)</span> &darr;</span> {/if}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div  style="vertical-align:top;">
+                    <div  style="padding: 30px 0;;border:none">
+
+                        <div  style="display: flex;flex-wrap: wrap;align-items:center" >
+
+                            <div style="width: 100%;">
+
+
+                                <table  style="border-collapse: collapse;width:100%;" >
+                                    <thead>
+                                    <tr>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;"><h2 style="margin: 0 0 0px 0;color:#000;white-space:nowrap;">Overdrive  </h2></th>
+                                        <th style="padding:7px;text-align:center;white-space:nowrap;color:#444;border-right:#eee solid 1px;min-width:70px;;border:none">  Credit used  </th>
+                                        <th style="width: 100%"></th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach from=$currencyarray item=foo}
+                                    <tr>
+                                        <td style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;border-right:#eee solid 1px;color:#999;min-width:120px;text-align:left;;text-align: right">
+                                            <span style="font-weight:bold;">{$foo.code}</span>
+                                        </td>
+                                        <td  style="padding:7px;white-space:nowrap;border-right:#eee solid 1px;text-align:center;;text-align: left;border-right:none;">{$overdrive[$foo.code]}</td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+            <br/><br/><br/>
+
+            <div style="border-top: #ddd solid 1px">
+                <div style="margin:auto;max-width:750px;width:100%">
+                    <div style="padding: 20px 0;">
+                        <table style="width: 100%">
+                            <tr>
+
+                                <td style="color: #888;font-size: 13px;text-align: center">
+                                    <img src="https://s3.ap-south-1.amazonaws.com/kb.dhru.com/images/app_icon_no_bg_32.png" style="vertical-align: middle;opacity: 0.5;margin-bottom: 10px;"/>
+                                    <div>
+                                        This email was sent by Dhru Fusion. <br/> You can change your notification from admin profile
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </td></tr></table>
+
+</div>
+
+</body>
+</html>

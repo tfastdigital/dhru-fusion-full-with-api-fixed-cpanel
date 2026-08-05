@@ -1,0 +1,241 @@
+body,h3.h3 span:before,.carousel.slide-products,.serchcontent,.list-group-item,.chosen-container .chosen-results li.highlighted
+{
+    background: #141B2D!important;
+    color:white
+}
+.bg-gray,.bg-white,.modal-header,
+.sa-icon.alert-success .sa-fix,
+.sa-icon.alert-success::before, .sa-icon.alert-success::after
+{
+    background: #141B2D !important;
+}
+.form-control,
+.carousel-indicator-img li,.carousel-indicators .active,
+.input-group-text,.list-group-item,
+.chosen-container-single .chosen-single,
+.chosen-container .chosen-drop,
+.theme-settings-icon,
+.serchcontent,
+.page-index header
+{
+
+}
+.header-top {
+    border-bottom-color:#ffffff0f ;
+}
+header {
+    background: #141c2e;
+    border-bottom: #ffffff12 solid 1px;
+}
+.news-list {
+    border-bottom: solid 1px #eeeeee1a;
+}
+a,.nav-link,.card-link{
+    color:#d9d9d9
+}
+.page-content{
+    background: transparent;
+}
+.navbar-expand-lg .navbar-nav .nav-item:hover .nav-link{
+    color: #d2d2d2;
+}
+.dropdown-item:focus, .dropdown-item:hover,.text-muted {
+    color: #fff !important;
+}
+.navbar-products .nav-item:hover .nav-link,.nav.navbar-light .nav-link,a:hover,.dropdown-menu{
+    color:white
+}
+.footer-top{
+    background: #212a40 !important;
+    border-top: #2a3859 solid 1px;
+}
+.bg-svg{
+    background: none !important;
+}
+.dropdown-header{
+    color: #474747;
+}
+.dropdown-item{
+    color:#bebebe;
+}
+.checkbox .helper::before, .checkbox .helper::after{
+    background: white;
+}
+.card{
+    padding:1rem !important;
+}
+.card, .card-product .product-info {
+    border-radius: 10px;
+}
+.dropdown-menu,.modal-content,.navbar-products .nav-item:hover,.card, .card-product .product-info{
+    background: #202940 !important;
+}
+
+.checkbox input:checked ~ .helper,.modal-menu .catloglist li.maincategory > a, .modal-menu .catloglist > li.nocategory > a{
+    color:white !important;
+}
+.card-product .service-name, .card-product .truncate-text {
+    color: #dddddd;
+}
+.modal-content{
+    background: #282828;
+}
+
+h3.h3.box-white span:before{
+    background: #2a2a2a !important;
+}
+.border,.border-left,.border-right,.border-top,.border-bottom,ul.nav-pills.flex-nowrap,.menu-column, .submenu-column,
+h3.h3.box-white:after, h3.h3.box-white:before,
+.sidebar .cart,
+.card-product .card-body,
+h3.h3:after, h3.h3:before,
+.serchcontent li.dropdown-item a, .serchcontent
+{
+    border-color: #293759!important;
+}
+.form-control{
+    border-color:transparent;
+}
+
+.text-dark,.navbar-toggler {
+    color: #adadad!important;
+}
+
+ul.nav-pills.flex-nowrap .nav-link.active,.modal-menu .dropdown-item {
+    color: white;
+    border-bottom-color:#2a3859;
+}
+.index-content p,.index-content,.footer-top .footer-navbar .nav .nav-item a.nav-link{
+    color:white
+}
+.modal-header{
+    background: #383838;
+    padding: 1.5rem;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    background-color: transparent !important;
+}
+.header-top .nav-item:hover,.sidebar .cart{
+    background: transparent;
+}
+
+.btn,.menu.selected, .page-size.selected,.btn.btn-light,.bg-hover:hover, .bg-hover:focus, .dropdown-item:focus, .dropdown-item:hover{
+    background: #686FFB !important;
+    border-color: transparent;
+}
+.dropdown-header{
+    color:#686FFB;
+}
+.reloadcaptcha,.footer-top .link-heading:after{
+    background-color:#fff !important;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(62, 62, 62, 0.25);
+}
+.card.card-product:hover
+{
+    background:#283c6e
+}
+.table,.bg-light, .card.card-product .product-info,.page-index header.navbar-shrink,.steps ul li.first a, .steps ul li.checked a {
+    background: #212a40  !important;
+}
+.table th ,.table td{
+    border-bottom-color:#283659 !important;
+    border-top-color:#283659 !important;
+}
+.list-group-item,.modal-menu .catloglist li.maincategory > a, .modal-menu .catloglist > li.nocategory > a{
+    border-color:#283659 !important;
+}
+
+.chosen-container-single .chosen-single,.chosen-container .chosen-drop,.dropdown-divider,.modal-menu .dropdown-item,
+.modal-menu .catloglist li.maincategory > a, .modal-menu .catloglist > li.nocategory > a
+{
+
+}
+
+.handsontable td, .handsontable th{
+    background-color: #212a40 !important;
+}
+.handsontable th{
+    color:#bcbcbc !important;
+}
+
+.serchcontent li.dropdown-item a,.serchcontent,hr.dashed,.carousel-indicator-img li ,.list-group-item,.sidebar .catloglist input[type="text"] {
+    border-color: #5f5e5e;
+    color:white;
+}
+.input-group-text{
+    color:black !important;
+}
+.chosen-container-active.chosen-with-drop .chosen-single{
+    box-shadow: 0 1px 0 #2c2a2a inset;
+}
+.table tbody+tbody {
+    border-top-color: #1d1d1d;
+}
+
+.modal-theme-settings .bg-svg{
+    border-color: #373737;
+}
+.theme-settings-icon{
+    background: black !important;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background: #141c2e;
+}
+.page-link{
+    background-color: #222;
+    border-color: #2a2a2a;
+}
+.modal-header .close,.navbar-brand{
+    color:white
+}
+.pagination{
+    border-top-color: #2a2a2a;
+}
+.tcs-select {
+    background-color: #292929 !important;
+}
+.modal-menu .nav-link.dropdown-toggle{
+    border-bottom-color: #353535;
+    background: #060606;
+}
+.footer-bottom{
+    background: black;
+}
+a, .text-muted, .h1, .h2, .h3, .h4, .h5, .h6, .btn-addtocart, .card-product:hover .service-name, .page-link,.btn-primary{
+    color:white;
+}
+.client-area .card{
+    box-shadow: none;
+}
+.header-color {
+    background: #212a40;
+}
+.header-bottom, .bg-primary, .footer-top .link-heading:after, .chosen-container .chosen-results li.highlighted, .page-index header.navbar-shrink, .steps ul li.first a, .steps ul li.checked a{
+    background-color: #141c2e !important;
+}
+.themedefault{
+    background-image: none;
+}
+.page-title{
+    color:white
+}
+.table thead th{
+    color:white
+}
+.gradiant:before{
+    background-image: linear-gradient(127deg, #141c2e 0%, #141c2e 91%);
+}
+@media (max-width: 992px){
+    .d-actionbar-mobile {
+        background: #333333;
+        border-top: #222 solid 1px;
+    }
+    header{
+        background: #212a40;
+    }
+    .page-title{
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,26 @@
+.header-bottom,.modal-header,.bg-primary,.footer-top .link-heading:after,.chosen-container .chosen-results li.highlighted,.page-index header.navbar-shrink,.steps ul li.first a, .steps ul li.checked a{
+    background: #94C217 !important;
+}
+  a,.text-muted,.h1, .h2, .h3, .h4, .h5, .h6, h3.title, .btn-addtocart,.card-product:hover  .service-name,.page-link,ul.nav-pills.flex-nowrap .nav-link.active,.double-border h5
+{color:#000;}
+.text-muted{opacity:0.8;}
+.modal-menu .modal-header,.cartminiview .badge-success,.custom-checkbox .custom-control-input:checked~.custom-control-label::before,button.btn.btn-primary,.wizard .actions li a,.bg-secondary,.nav-pills .nav-link.active, .nav-pills .show>.nav-link,.navbar-expand-lg .navbar-nav .nav-item .nav-link:not(.bg-secondary)::before{
+    background: #1F2228 !important;
+    color:white;
+}
+.themedefault{
+    background-image: linear-gradient(90deg, #93c217 0%, #89bb07 100%);
+}
+.bg-light {
+    background: #20232812 !important;
+}
+.card-product:hover,ul.nav-pills.flex-nowrap .nav-link.active,h3.title span,.price-details table td.double-border{
+    border-color:#1F2228;
+}
+.form-control:focus{
+    border-color:#94C217;
+    box-shadow: 0 0 0 0.2rem rgba(147, 194, 23, 0.18)
+}
+.header-color{
+    background: #94C217eb;
+}

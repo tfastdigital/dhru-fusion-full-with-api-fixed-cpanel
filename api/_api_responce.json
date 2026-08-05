@@ -1,0 +1,11 @@
+HTTP/2 200 
+server: nginx/1.18.0
+date: Fri, 13 Oct 2023 23:14:31 GMT
+content-type: application/json
+content-length: 391
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+access-control-allow-origin: *
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-expose-headers: Content-Length,Content-Type,Date,Server,Connection
+
+{"ok":true,"result":{"message_id":34,"from":{"id":6669135556,"is_bot":true,"first_name":"fukkk123_bot","username":"fukkk123_bot"},"chat":{"id":5402629798,"first_name":"PongoOS \ud83d\ude9bkpf","last_name":"Exploitx","username":"PongokpfExploits","type":"private"},"date":1697238871,"text":"ccs ccs\n\ud83d\udc64imccs4052\n\n1611.000 USD","entities":[{"offset":10,"length":9,"type":"bold"}]}}

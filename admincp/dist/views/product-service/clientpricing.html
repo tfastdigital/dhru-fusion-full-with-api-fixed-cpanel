@@ -1,0 +1,65 @@
+<div class="container-fluid p-0 mt-3">
+<form ng-submit="saveproduct($event)" >
+
+    <fieldset class="search-form">
+        <legend>Quick Search</legend>
+        <div class="d-flex justify-content-start align-items-center">
+            <!--<div class="mr-3">
+                 <input type="text" ng-model="search" ng-keyup="searchservice(search)" class="form-control " placeholder="Search Service" />
+            </div>-->
+            <div class="mr-3">
+                <select class="form-control select-chosen"    ng-model="group" ng-change="getProductByClient()">
+                    <option value="">Select Group</option>
+                    <option ng-repeat="(key,pg) in groups track by $index" value="{{pg.id}}">{{pg.group_name}}</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <table class="table border-bottom" ng-if="products">
+        <thead>
+            <tr>
+                <th>Service Name</th>
+                <th  class="text-center">Stauts</th>
+                <th class="text-center">Credit <br/><span>[{{client.code}}]</span></th>
+                <th class="text-center">Custom Credit <br/><span>[{{client.code}}]</span></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr  ng-repeat="(pid,p) in products  track by  $index" ng-class="p.usercustomprice?'customprice':''">
+                <td class="border-right">
+                    {{p.service_name}}
+                </td>
+
+                <td class="border-right text-center">
+                    <span ng-if="p.active" style="color: green"><span>Active</span></span>
+                    <span ng-if="!p.active" style="color: red"><span>Inactive</span></span>
+                </td>
+
+                <td class="text-center">
+                    {{p.defaultprice|currency:client.code}}
+                </td>
+
+                <td style="width: 150px"  class="text-center">
+                    <div ng-if="!p.usercustomprice" ng-click="p.usercustomprice=p.defaultprice">
+                        {{p.defaultprice|currency:client.code}}
+                    </div>
+                    <input type="text" class="form-control" ng-if="p.usercustomprice"  ng-model="p.usercustomprice" name=""  format="currency" symbol="{{client.code}}"   placeholder="Custom Price"/>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+    <div class="p-2 fixed-action-bar">
+        <button type="submit" class="btn btn-dark">Apply</button>
+    </div>
+</form>
+</div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/>

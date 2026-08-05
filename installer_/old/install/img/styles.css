@@ -1,0 +1,126 @@
+
+body, td, th {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #888;
+}
+body {
+	background-color: #f9f9f9;
+	margin: 0;
+}
+a, a:visited {
+	color: #000066;
+	text-decoration: underline;
+}
+a:hover {
+	text-decoration: none;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+input, select, textarea {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 3px;
+}
+fieldset {
+	color: #333;
+	background-color: #FFF;
+	text-align: left;
+	width: 100%;	
+	margin: 20px auto 10px auto;
+	border: 5px solid #dedede;
+    border-radius:4px;-moz-border-radius:4px;	-webkit-border-radius:4px;  
+    box-shadow:0 0 5px #DDDDDD;
+    border:1px solid #DDDDDD; 
+    padding:10px 10px 0 10px;
+}
+
+#logo {
+	text-align: center;
+	margin: 0;
+	padding: 50px 0 0 0;
+}
+fieldset #login {
+	background-color: #FFF;
+	text-align: left;
+	margin: 0;
+	padding: 10px ;
+}
+fieldset p{background: #f4f4f4;padding:5px;border-top:2px solid #DDDDDD;margin:10px -10px 0;padding:15px 10px} 
+fieldset #login_failed {
+    background-color: #FCF9D2;
+    text-align: center;
+    padding: 10px;
+    margin: 0 0 1px 0;
+}
+fieldset #extra_info {
+	background-color: #083b6e;
+	text-align: left;
+	padding: 10px;
+	margin: 1px 0 0 0;
+}
+
+input.button_save, .btn.active, .btn.save, .submit {
+    background: url("button_save1.png") repeat-x scroll center center transparent !important;
+    border: 1px solid #50A355 !important;
+    border-radius: 3px 3px 3px 3px;
+    color: white !important;
+    font-size: 14px;
+    padding: 3px 10px;
+    text-shadow: 0 -1px 0 #3B7506;
+}
+
+.clear{clear:both}
+legend{display: none;}
+
+input[type="submit"],input[type="button"],.prev,.next{
+    	background: url("bg-btn.gif") repeat-x 0px 0px rgb(221, 221, 221); border-width: 1px; border-style: solid; border-color: rgb(187, 187, 187) rgb(187, 187, 187) rgb(153, 153, 153); font: 12px/15px Helvetica Neue, Arial, "Lucida Grande", Sans-serif; margin: 0px; padding: 5px 9px; color: rgb(51, 51, 51) !important; overflow: hidden; display: inline-block; cursor: pointer; font-size-adjust: none; font-stretch: normal; box-shadow: 0px 1px 0px #f8f8f8;
+        border-radius: 4px; -moz-border-radius:2px;	-webkit-border-radius:2px;text-decoration: none;
+}
+input[type="submit"]:hover,input[type="button"]:hover,.prev:hover,.next:hover{
+	background-position: 0px -6px; border-color: rgb(153, 153, 153) rgb(153, 153, 153) rgb(102, 102, 102); color: rgb(0, 0, 0); text-decoration: none;
+}
+input[type="text"],input[type="password"],select,textarea{border: #DDD solid 1px;padding: 7px;}
+input[type="text"]:focus,input[type="password"]:focus,select:focus{box-shadow: 0 0 8px #DDDDDD;}
+input[type="text"]:hover,input[type="password"]:hover,select:hover,textarea:hover{border: #BBBABA solid 1px;}
+input.button_remove, .btn.remove{ background:#C24651 url("button_remove1.png") repeat-x!important;
+border: 1px solid #C24651 !important;
+    color: white !important;
+    text-shadow: 0 -1px 0 black;
+    font-size: 14px;
+    padding: 3px 10px;
+    border-radius: 3px 3px 3px 3px;
+    }
+a{text-decoration: none;}
+.prev:hover, .next:hover { background-color: black;  text-decoration:none;}
+
+#steps { list-style:none; width:750px; overflow:hidden; margin:0px; padding:0px; text-align: center;margin-bottom: 20px;}
+#steps li {font-size:24px; padding:10px; color:#b0b1b3;display: inline-block;}
+#steps li span {font-size:11px; display:block;}
+#steps li.current { color:#000;}
+#makeWizard { background-color:#b0232a; color:#fff; padding:5px 10px; text-decoration:none; font-size:18px;}
+#makeWizard:hover { background-color:#000;}
+
+#notification {
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    cursor: pointer;
+    font-size: 12px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:10px   
+}
+#notification li{list-style: none;}
+.errorbox {
+    background-color: #FAE2E2;
+    background-image: -moz-linear-gradient(#FFCDD1, #ECBCC0);
+    border: 1px solid #EEB7BA;
+    color: #BE4741;
+    text-shadow: 0 1px 1px #FFFFFF;
+}
+
+
+fieldset{border: none;}

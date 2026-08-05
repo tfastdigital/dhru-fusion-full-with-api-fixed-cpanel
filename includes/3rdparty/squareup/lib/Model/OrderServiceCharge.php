@@ -1,0 +1,281 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+namespace SquareConnect\Model;
+
+/**
+ * OrderServiceCharge Class Doc Comment
+ *
+ * @category Class
+ * @package  SquareConnect
+ * @author   Square Inc.
+ * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
+ * @link     https://squareup.com/developers
+ */
+class OrderServiceCharge implements \ArrayAccess
+{
+    /**
+     * $uid Unique ID that identifies the service charge only within this order.  This field is read-only.
+     * @var string
+     */
+    protected $uid = NULL;
+    /**
+     * $name The name of the service charge.
+     * @var string
+     */
+    protected $name = NULL;
+    /**
+     * $catalog_object_id The catalog object ID referencing the service charge [CatalogObject](#type-catalogobject).
+     * @var string
+     */
+    protected $catalog_object_id = NULL;
+    /**
+     * $percentage The service charge percentage, as a string representation of a decimal number.  For example, `7.25` indicates 7.25%  Exactly one of `percentage` or `amount_money` should be set.
+     * @var string
+     */
+    protected $percentage = NULL;
+    /**
+     * $amount_money The amount of a non-percentage based service charge.  Exactly one of `percentage` or `amount_money` should be set.
+     * @var \SquareConnect\Model\Money
+     */
+    protected $amount_money = NULL;
+    /**
+     * $applied_money The amount of money applied to the order by the service charge, as calculated by the server.  For fixed-amount service charges, `applied_money` is equal to `amount_money`.  For percentage-based service charges, `applied_money` is the money calculated using the percentage. The `applied_money` field will include any inclusive tax amounts as well.  This field is read-only.
+     * @var \SquareConnect\Model\Money
+     */
+    protected $applied_money = NULL;
+    /**
+     * $total_money The total amount of money to collect for the service charge.  Note that `total_money` does not equal `applied_money` plus `total_tax_money` if an inclusive tax is applied to the service charge since the inclusive tax amount will be included in both `applied_money` and `total_tax_money`.  This field is read-only.
+     * @var \SquareConnect\Model\Money
+     */
+    protected $total_money = NULL;
+    /**
+     * $total_tax_money The total amount of tax money to collect for the service charge.  This field is read-only.
+     * @var \SquareConnect\Model\Money
+     */
+    protected $total_tax_money = NULL;
+    /**
+     * $calculation_phase The calculation phase at which to apply the service charge. See [OrderServiceChargeCalculationPhase](#type-orderservicechargecalculationphase) for possible values
+     * @var string
+     */
+    protected $calculation_phase = NULL;
+    /**
+     * $taxable Indicates whether the service charge can be taxed. If set to `true`, any order-level taxes will automatically apply to this service charge. Note that service charges calculated in the `TOTAL_PHASE` cannot be marked as taxable.
+     * @var bool
+     */
+    protected $taxable = NULL;
+    /**
+     * $taxes Taxes applied to the service charge. By default, order-level taxes apply to service charges calculated in the `SUBTOTAL_PHASE` if `taxable` is set to `true`.
+     * @var \SquareConnect\Model\OrderLineItemTax[]
+     */
+    protected $taxes = NULL;
+    /**
+     * Array of property to type mappings. Used for (de)serialization 
+     * @var string[]
+     */
+    public static $swaggerTypes = ["uid" => "string", "name" => "string", "catalog_object_id" => "string", "percentage" => "string", "amount_money" => "\\SquareConnect\\Model\\Money", "applied_money" => "\\SquareConnect\\Model\\Money", "total_money" => "\\SquareConnect\\Model\\Money", "total_tax_money" => "\\SquareConnect\\Model\\Money", "calculation_phase" => "string", "taxable" => "bool", "taxes" => "\\SquareConnect\\Model\\OrderLineItemTax[]"];
+    /** 
+     * Array of attributes where the key is the local name, and the value is the original name
+     * @var string[] 
+     */
+    public static $attributeMap = ["uid" => "uid", "name" => "name", "catalog_object_id" => "catalog_object_id", "percentage" => "percentage", "amount_money" => "amount_money", "applied_money" => "applied_money", "total_money" => "total_money", "total_tax_money" => "total_tax_money", "calculation_phase" => "calculation_phase", "taxable" => "taxable", "taxes" => "taxes"];
+    /**
+     * Array of attributes to setter functions (for deserialization of responses)
+     * @var string[]
+     */
+    public static $setters = ["uid" => "setUid", "name" => "setName", "catalog_object_id" => "setCatalogObjectId", "percentage" => "setPercentage", "amount_money" => "setAmountMoney", "applied_money" => "setAppliedMoney", "total_money" => "setTotalMoney", "total_tax_money" => "setTotalTaxMoney", "calculation_phase" => "setCalculationPhase", "taxable" => "setTaxable", "taxes" => "setTaxes"];
+    /**
+     * Array of attributes to getter functions (for serialization of requests)
+     * @var string[]
+     */
+    public static $getters = ["uid" => "getUid", "name" => "getName", "catalog_object_id" => "getCatalogObjectId", "percentage" => "getPercentage", "amount_money" => "getAmountMoney", "applied_money" => "getAppliedMoney", "total_money" => "getTotalMoney", "total_tax_money" => "getTotalTaxMoney", "calculation_phase" => "getCalculationPhase", "taxable" => "getTaxable", "taxes" => "getTaxes"];
+    public function __construct($data = NULL)
+    {
+        if ($data != NULL) {
+            if (isset($data["uid"])) {
+                $this->uid = $data["uid"];
+            } else {
+                $this->uid = NULL;
+            }
+            if (isset($data["name"])) {
+                $this->name = $data["name"];
+            } else {
+                $this->name = NULL;
+            }
+            if (isset($data["catalog_object_id"])) {
+                $this->catalog_object_id = $data["catalog_object_id"];
+            } else {
+                $this->catalog_object_id = NULL;
+            }
+            if (isset($data["percentage"])) {
+                $this->percentage = $data["percentage"];
+            } else {
+                $this->percentage = NULL;
+            }
+            if (isset($data["amount_money"])) {
+                $this->amount_money = $data["amount_money"];
+            } else {
+                $this->amount_money = NULL;
+            }
+            if (isset($data["applied_money"])) {
+                $this->applied_money = $data["applied_money"];
+            } else {
+                $this->applied_money = NULL;
+            }
+            if (isset($data["total_money"])) {
+                $this->total_money = $data["total_money"];
+            } else {
+                $this->total_money = NULL;
+            }
+            if (isset($data["total_tax_money"])) {
+                $this->total_tax_money = $data["total_tax_money"];
+            } else {
+                $this->total_tax_money = NULL;
+            }
+            if (isset($data["calculation_phase"])) {
+                $this->calculation_phase = $data["calculation_phase"];
+            } else {
+                $this->calculation_phase = NULL;
+            }
+            if (isset($data["taxable"])) {
+                $this->taxable = $data["taxable"];
+            } else {
+                $this->taxable = NULL;
+            }
+            if (isset($data["taxes"])) {
+                $this->taxes = $data["taxes"];
+            } else {
+                $this->taxes = NULL;
+            }
+        }
+    }
+    public function getUid()
+    {
+        return $this->uid;
+    }
+    public function setUid($uid)
+    {
+        $this->uid = $uid;
+        return $this;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+    public function getCatalogObjectId()
+    {
+        return $this->catalog_object_id;
+    }
+    public function setCatalogObjectId($catalog_object_id)
+    {
+        $this->catalog_object_id = $catalog_object_id;
+        return $this;
+    }
+    public function getPercentage()
+    {
+        return $this->percentage;
+    }
+    public function setPercentage($percentage)
+    {
+        $this->percentage = $percentage;
+        return $this;
+    }
+    public function getAmountMoney()
+    {
+        return $this->amount_money;
+    }
+    public function setAmountMoney($amount_money)
+    {
+        $this->amount_money = $amount_money;
+        return $this;
+    }
+    public function getAppliedMoney()
+    {
+        return $this->applied_money;
+    }
+    public function setAppliedMoney($applied_money)
+    {
+        $this->applied_money = $applied_money;
+        return $this;
+    }
+    public function getTotalMoney()
+    {
+        return $this->total_money;
+    }
+    public function setTotalMoney($total_money)
+    {
+        $this->total_money = $total_money;
+        return $this;
+    }
+    public function getTotalTaxMoney()
+    {
+        return $this->total_tax_money;
+    }
+    public function setTotalTaxMoney($total_tax_money)
+    {
+        $this->total_tax_money = $total_tax_money;
+        return $this;
+    }
+    public function getCalculationPhase()
+    {
+        return $this->calculation_phase;
+    }
+    public function setCalculationPhase($calculation_phase)
+    {
+        $this->calculation_phase = $calculation_phase;
+        return $this;
+    }
+    public function getTaxable()
+    {
+        return $this->taxable;
+    }
+    public function setTaxable($taxable)
+    {
+        $this->taxable = $taxable;
+        return $this;
+    }
+    public function getTaxes()
+    {
+        return $this->taxes;
+    }
+    public function setTaxes($taxes)
+    {
+        $this->taxes = $taxes;
+        return $this;
+    }
+    public function offsetExists($offset)
+    {
+        return isset($this->{$offset});
+    }
+    public function offsetGet($offset)
+    {
+        return $this->{$offset};
+    }
+    public function offsetSet($offset, $value)
+    {
+        $this->{$offset} = $value;
+    }
+    public function offsetUnset($offset)
+    {
+        unset($this->{$offset});
+    }
+    public function __toString()
+    {
+        if (defined("JSON_PRETTY_PRINT")) {
+            return json_encode(\SquareConnect\ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+        }
+        return json_encode(\SquareConnect\ObjectSerializer::sanitizeForSerialization($this));
+    }
+}
+
+?>

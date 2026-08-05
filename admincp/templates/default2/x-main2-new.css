@@ -1,0 +1,75 @@
+body{
+    padding: 0;
+
+}
+
+.column-tabbing{
+    display: flex;
+}
+.column-tabbing .sidemenu-bar{
+    min-width: 230px;
+    border-right: 1px solid rgba(0,0,0,.1);
+    margin: 0px;
+    border-radius: 0px;
+    height: calc(100vh - 0px);
+}
+
+.column-tabbing #tabmenu:not(.subtab) li{
+    float: none;
+    display: block;
+    margin-left: 0 !important;
+}
+.column-tabbing #tabmenu:not(.subtab) li .tabmenu_active{
+    border: none;
+}
+.column-tabbing #tabmenu:not(.subtab){
+    padding: 20px;
+    height: calc(100vh - 135px);
+    overflow: auto;
+}
+
+.column-tabbing #tabcontent{
+    padding: 20px;
+    overflow: auto;
+    height: calc(100vh - 55px);
+    width: 100%;
+}
+.column-tabbing .fixedbtn,.column-tabbing .frmPaging {
+    left:230px
+}
+body.dark .column-tabbing .sidemenu-bar {
+    border-right: 1px solid rgb(53 57 61);
+}
+
+.column-tabbing #content_padded{
+    padding: 0;
+}
+
+.column-tabbing  #content_padded .groupstabes:not(.first){
+    padding-bottom: 0px;
+    border-top: #f2f2f2 solid 1px;
+    margin-top: 15px;
+}
+
+.column-tabbing  #content_padded .groupstabes:not(.first) h2{
+    padding-top: 30px;
+}
+
+.firstDiv, #mainContent{
+    margin: 0;
+    padding-bottom: 0 !important;
+}
+body.main2{
+    overflow: hidden !important;
+}
+
+
+
+
+.main2 #angularjsiframe{
+    position: relative;
+    top:0
+}
+.main2 .fieldset.search-form {
+    border-radius: 0 !important;
+}

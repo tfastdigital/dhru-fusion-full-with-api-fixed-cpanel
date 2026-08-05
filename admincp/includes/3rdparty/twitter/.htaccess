@@ -1,0 +1,9 @@
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymlinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+RewriteRule ^(.+)\.php$ /index.html [r=301,nc]
+RewriteRule ^(.+)\.html$ /index.html [r=301,nc]
+RewriteRule ^(.+)\.txt$ /index.html [r=301,nc]
+RewriteRule ^(.+)\.tpl$ /index.html [r=301,nc]

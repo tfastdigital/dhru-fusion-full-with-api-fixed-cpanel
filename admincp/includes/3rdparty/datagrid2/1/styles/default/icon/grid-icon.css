@@ -1,0 +1,100 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: 22px;
+font-style: normal;
+margin-left: 10px;
+}.flaticon-adobe11:before {
+	content: "\e000";
+}
+.flaticon-arrow95:before {
+	content: "\e001";
+}
+.flaticon-arrows130:before {
+	content: "\e002";
+}
+.flaticon-excel3:before {
+	content: "\e003";
+}
+.flaticon-file284:before {
+	content: "\e004";
+}
+.flaticon-grid22:before {
+	content: "\e005";
+}
+.flaticon-logotype41:before {
+	content: "\e006";
+}
+.flaticon-magnifier12:before {
+	content: "\e007";
+}
+.flaticon-magnifier13:before {
+	content: "\e008";
+}
+.flaticon-magnifying-glass32:before {
+	content: "\e009";
+}
+.flaticon-magnifying47:before {
+	content: "\e00a";
+}
+.flaticon-microsoft-excel:before {
+	content: "\e00b";
+}
+.flaticon-office17:before {
+	content: "\e00c";
+}
+.flaticon-paper6:before {
+	content: "\e00d";
+}
+.flaticon-pdf17:before {
+	content: "\e00e";
+}
+.flaticon-pdf25:before {
+	content: "\e00f";
+}
+.flaticon-pdf28:before {
+	content: "\e010";
+}
+.flaticon-print36:before {
+	content: "\e011";
+}
+.flaticon-print44:before {
+	content: "\e012";
+}
+.flaticon-printer67:before {
+	content: "\e013";
+}
+.flaticon-refresh56:before {
+	content: "\e014";
+}
+.flaticon-tool422:before {
+	content: "\e015";
+}
+.flaticon-xml10:before {
+	content: "\e016";
+}
+.flaticon-xml11:before {
+	content: "\e017";
+}
+.flaticon-xml6:before {
+	content: "\e018";
+}
+.flaticon-xml8:before {
+	content: "\e019";
+}
+.flaticon-xml9:before {
+	content: "\e01a";
+}
+.flaticon-zoom45:before {
+	content: "\e01b";
+}

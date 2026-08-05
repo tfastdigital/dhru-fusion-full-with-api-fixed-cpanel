@@ -1,0 +1,8 @@
+# Email      : info@dhru.com
+# Copyright (c) 2013-19 Dhru.com  . All Rights Reserved,
+# =======================================================
+# Htaccess Config Version    : 7.1
+
+<Files *>
+Deny from all
+</Files> 

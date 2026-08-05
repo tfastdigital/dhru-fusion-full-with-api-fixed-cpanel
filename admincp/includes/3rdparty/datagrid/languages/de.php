@@ -1,0 +1,147 @@
+<?php
+/*
+ * @ https://EasyToYou.eu - IonCube v11 Decoder Online
+ * @ PHP 7.2 & 7.3
+ * @ Decoder version: 1.0.6
+ * @ Release: 10/08/2022
+ */
+
+function setLanguage()
+{
+    $lang["="] = "=";
+    $lang[">"] = ">";
+    $lang["<"] = "<";
+    $lang["add"] = "Hinzuf&uuml;gen";
+    $lang["add_new"] = "+ Neuer Eintrag";
+    $lang["add_new_record"] = "Neuer Eintrag";
+    $lang["add_new_record_blocked"] = "Sichereits-pr&uuml;fung: Sie haben versucht einen neuen Eintrg hinzuzuf&uuml;gen! Pr&uuml;fen Sie Ihre einstellungen, Vorgang ist nicht erlaubt worden!";
+    $lang["adding_operation_completed"] = "Das Hinzuzuf&uuml;gen war erfolgreich!";
+    $lang["adding_operation_uncompleted"] = "Hinzuzuf&uuml;gen schlug fehl!";
+    $lang["alert_perform_operation"] = "Sind Sie sicher, dass Sie diese Operation durchf&uuml;hren m&ouml;chten?";
+    $lang["alert_select_row"] = "Sie m&uuml;ssen eine oder mehrere Zeilen ausw&auml;hlen, um diese Operation durchf&uuml;hren!";
+    $lang["and"] = "und";
+    $lang["any"] = "irgendeiner";
+    $lang["ascending"] = "Aufsteigend";
+    $lang["back"] = "Zur&uuml;ck";
+    $lang["cancel"] = "Abbrechen";
+    $lang["cancel_creating_new_record"] = "Wollen Sie die Erstellung des Eintrags wirklich abbrechen?";
+    $lang["check_all"] = "Alle w&auml;hlen";
+    $lang["clear"] = "Leeren";
+    $lang["click_to_download"] = "Klicken Sie zum Herunterladen";
+    $lang["clone_selected"] = "Clone selected";
+    $lang["cloning_record_blocked"] = "Security check: attempt of cloning a record! Check your settings, the operation is not allowed!";
+    $lang["cloning_operation_completed"] = "The cloning operation completed successfully!";
+    $lang["cloning_operation_uncompleted"] = "The cloning operation uncompleted!";
+    $lang["create"] = "Erstellen";
+    $lang["create_new_record"] = "Neuen Eintrag erstellen";
+    $lang["current"] = "aktueller";
+    $lang["delete"] = "L&ouml;schen";
+    $lang["delete_record"] = "Eintrag l&ouml;schen";
+    $lang["delete_record_blocked"] = "Sichereits-pr&uuml;fung:: Versuch L&ouml;schen eines Datensatzes! &Uuml;berpr&uuml;fen Sie Ihre Einstellungen, die Operation wird nicht erlaubt!";
+    $lang["delete_selected"] = "Gew&auml;hlte l&ouml;schen";
+    $lang["delete_selected_records"] = "Sind Sie sicher das Sie die ausgew&auml;hlten Eintr&auml;ge l&ouml;schen m&ouml;chten?";
+    $lang["delete_this_record"] = "M&ouml;chten Sie diesen Eintrag wirklich l&ouml;schen?";
+    $lang["deleting_operation_completed"] = "Die L&ouml;schung wurde erfolgreich durchgef&uuml;hrt!";
+    $lang["deleting_operation_uncompleted"] = "Die L&ouml;schaufforderung ist gescheitert!";
+    $lang["descending"] = "Absteigend";
+    $lang["details"] = "Details";
+    $lang["details_selected"] = "Details der Auswahl";
+    $lang["download"] = "Herunterladen";
+    $lang["edit"] = "&Auml;ndern";
+    $lang["edit_selected"] = "Auswahl editieren";
+    $lang["edit_record"] = "Eintrag &auml;ndern";
+    $lang["edit_selected_records"] = "Sind Sie sicher das Sie diese Eintr&auml;ge bearbeiten m&ouml;chten?";
+    $lang["errors"] = "Fehler";
+    $lang["export_to_excel"] = "Export zu Excel";
+    $lang["export_to_pdf"] = "Export zu PDF";
+    $lang["export_to_xml"] = "Export zu XML";
+    $lang["export_message"] = "Die Datei _FILE_ ist vorbereitet. Nach dem download, k&ouml;nnen Sie das Fenster schlie&szuml;en.";
+    $lang["field"] = "Feld";
+    $lang["field_value"] = "Feldinhalt";
+    $lang["file_find_error"] = "Konnte Datei nicht finden: _FILE_. Pr&uuml;fen Sie ob die Datei existiert und ob der Pfad richtig angegeben wurde!";
+    $lang["file_opening_error"] = "Konnte Datei nicht &ouml;ffnen. Kontrollieren sie Ihre Zugriffsrechte";
+    $lang["file_extension_error"] = "File upload error: file extension not allowed for upload. Please select another file.";
+    $lang["file_writing_error"] = "In der Datei kann nicht geschrieben werden. Kontrollieren Sie Ihre Zugriffsrechte!";
+    $lang["file_invalid_file_size"] = "Ung&uuml;ltige Dateigr&ouml;&szlig;e";
+    $lang["file_uploading_error"] = "Es gab einen Fehler w&auml;hrend des Uploads, versuchen Sie es bitte erneut!";
+    $lang["file_deleting_error"] = "Beim l&ouml;schen ist ein Fehler aufgetreten!";
+    $lang["first"] = "erster";
+    $lang["generate"] = "Erzeugen";
+    $lang["handle_selected_records"] = "M&oumlchten Sie die ausgewaehlte Auswahl bearbeiten?";
+    $lang["hide_search"] = "Suchmaske verstecken";
+    $lang["last"] = "letzter";
+    $lang["like"] = "like";
+    $lang["like%"] = "like%";
+    $lang["%like"] = "%like";
+    $lang["%like%"] = "%like%";
+    $lang["loading_data"] = "lade Daten...";
+    $lang["max"] = "max";
+    $lang["next"] = "n&auml;chste";
+    $lang["no"] = "nein";
+    $lang["no_data_found"] = "Keine Eintr&auml;ge gefunden";
+    $lang["no_data_found_error"] = "Keine Eintr&auml;ge gefunden! Bitte kontrollieren Sie genau ihre Behfehl Syntax! Kontrollieren Sie gro&szlig;-klein schreibung, oder ein Sonderzeichen.";
+    $lang["no_image"] = "Kein Bild";
+    $lang["not_like"] = "not like";
+    $lang["of"] = "von";
+    $lang["operation_was_already_done"] = "Die Operation ist bereits abgeschlossen!";
+    $lang["or"] = "oder";
+    $lang["pages"] = "Seiten";
+    $lang["page_size"] = "Ergeb./Seite";
+    $lang["previous"] = "vorige";
+    $lang["printable_view"] = "Druckbare Vorschau";
+    $lang["print_now"] = "Jetzt Drucken";
+    $lang["print_now_title"] = "Dr&uuml;cken Sie hier um die Seite auszudrucken.";
+    $lang["record_n"] = "Eintrag #";
+    $lang["refresh_page"] = "Seite erneut laden";
+    $lang["remove"] = "Entfernen";
+    $lang["reset"] = "Zur&uuml;cksetzen";
+    $lang["results"] = "Ergebnisse";
+    $lang["required_fields_msg"] = "Felder markiert mit * m&uuml;ssen ausgef&uuml;llt werden.";
+    $lang["search"] = "Suche";
+    $lang["search_d"] = "Suchen";
+    $lang["search_type"] = "Suchart";
+    $lang["select"] = "w&auml;hlen";
+    $lang["set_date"] = "Datum setzen";
+    $lang["sort"] = "Sort";
+    $lang["test"] = "Test";
+    $lang["total"] = "Insgesammt";
+    $lang["turn_on_debug_mode"] = "F&uuml;r weitere Informationen bitte den Debug-Mode einschalten.";
+    $lang["uncheck_all"] = "Auswahl aufheben";
+    $lang["update"] = "Aktualisieren";
+    $lang["unhide_search"] = "Suchfenster anzeigen";
+    $lang["unique_field_error"] = "Das Feld _FIELD_ erlaubt nur eindeutige Werte - bitte erneut eingeben!";
+    $lang["update_record"] = "Eintrag Aktualisieren";
+    $lang["update_record_blocked"] = "Sichereits-pr&uuml;fung: es wurde versucht, einen Satz zu &auml;ndern! &Uuml;berpr&uml;fen Sie Ihre Einstellungen, die Operation ist nicht erlaubt!";
+    $lang["updating_operation_completed"] = "Die &Auml;nderung war erfolgreich!";
+    $lang["updating_operation_uncompleted"] = "Der Aktualisierungsvorgang schlug fehl!";
+    $lang["upload"] = "Upload";
+    $lang["uploaded_file_not_image"] = "Die hochgeladene Datei scheint nicht zu einem Bild.";
+    $lang["view"] = "Ansicht";
+    $lang["view_details"] = "Details ansehen";
+    $lang["warnings"] = "Warnungen";
+    $lang["with_selected"] = "Auswahl";
+    $lang["wrong_field_name"] = "Falscher Feldname";
+    $lang["wrong_parameter_error"] = "Falscher Parameter in [<b>_FIELD_</b>]: _VALUE_";
+    $lang["yes"] = "Ja";
+    $lang["day"] = "Tag";
+    $lang["month"] = "Monat";
+    $lang["year"] = "Jahr";
+    $lang["hour"] = "Stunden";
+    $lang["min"] = "min";
+    $lang["sec"] = "sec";
+    $lang["months"][1] = "Januar";
+    $lang["months"][2] = "Februar";
+    $lang["months"][3] = "M&auml;rz";
+    $lang["months"][4] = "April";
+    $lang["months"][5] = "Mai";
+    $lang["months"][6] = "Juni";
+    $lang["months"][7] = "Juli";
+    $lang["months"][8] = "August";
+    $lang["months"][9] = "September";
+    $lang["months"][10] = "Oktober";
+    $lang["months"][11] = "November";
+    $lang["months"][12] = "Dezember";
+    return $lang;
+}
+
+?>

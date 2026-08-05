@@ -1,0 +1,85 @@
+/* CSS Document */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{margin: 0;padding: 0;border: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+body{font: 100% Arial,Verdana, Tahoma, Helvetica, sans-serif;background: #ffffff;margin: 0;padding: 1px 1px;text-align: center;color: #000000;}
+body.mbBody a{text-decoration:none;}
+body.mbBody a:hover{text-decoration:underline;}
+body.mbBody .cb{clear:both;}
+.vm{vertical-align:middle;}
+body.mbBody .adv{text-align:center;padding:4px 0px;clear:both; }
+.mbBody #container{width: 100%;margin: 0 auto; border: 1px solid silver;text-align: left;}
+.mbBody #header{padding:0px; background: url(../images/bg.jpg);} 
+.mbBody #header .logo{text-align:center;height:45px;}
+.mbBody #header .top-nav ul{padding:4px 0px;list-style:none;background:#8e8e8e;float:left;width:100%;}
+.mbBody #header .top-nav ul li{background:url(../images/li-bg.gif) right repeat-y;padding:4px 9px 4px 7px;display:inline;font-size:75%;color:#fff;}
+.mbBody #header .top-nav ul li.last-li{background:none;}
+.mbBody #header .top-nav ul li.sele{font-weight:bold;}
+.mbBody #header .top-nav ul li a{color:#fff;}
+
+
+.mbBody #mainContent{padding: 0 4px;background: #FFFFFF;}
+.mbBody #mainContent .date-fonts{clear:both;padding-bottom:4px;}
+.mbBody #mainContent .date-fonts ul{list-style:none;float:left;width:100%;}
+.mbBody #mainContent .date-fonts ul li{display:inline;}
+.mbBody #mainContent .date-fonts ul li.date{float:left;font-size:70%;}
+.mbBody #mainContent .date-fonts ul li.font{float:right;font-size:70%;}
+.mbBody #mainContent .date-fonts ul li.font span.small{font-weight:bold;font-size:11px;}
+.mbBody #mainContent .date-fonts ul li.font span.large{font-size:14px;font-weight:bold;}
+.mbBody #mainContent .market{border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;width:100%;}
+.mbBody #mainContent .market .tbl-row{border-bottom:1px solid #fff;background:#f3f6f6;width:100%;}
+.mbBody #mainContent .market .tbl-row ul{list-style:none;float:left;width:100%;font-size:75%;}
+.mbBody #mainContent .market .tbl-row ul li{display:inline-block;padding:7px 0px;}
+.mbBody #mainContent .market .tbl-row ul li.house{font-weight:bold;padding-left:5px;padding-right:5px;width:15%;border-right:1px solid #e4e4e4;}
+.mbBody #mainContent .market .tbl-row ul li.house a{color:#000000;}
+.mbBody #mainContent .market .tbl-row ul li.sensex{width:22%;text-align:right;}
+.mbBody #mainContent .market .tbl-row ul li.diff{width:22%;text-align:right;}
+.mbBody #mainContent .market .tbl-row ul li.up{color:#067a00;}
+.mbBody #mainContent .market .tbl-row ul li.down{color:#E90000;}
+.mbBody #mainContent .market .tbl-row ul li.arw{width:10%;text-align:center;}
+.mbBody #mainContent .market .tbl-row ul li img{vertical-align:middle;}
+
+
+
+
+.mbBody #footer{padding: 0 10px;background:#8e8e8e; width:100%; bottom: 0px; position: fixed; } 
+.mbBody #footer ul{padding:6px 0px;list-style:none; }
+.mbBody #footer ul li{background:url(../images/li-bg.gif) right repeat-y;padding:4px 9px 4px 7px;display:inline;font-size:75%;color:#fff;}
+.mbBody #footer ul li.last-li{background:none;}
+.mbBody #footer ul li a{color:#fff;}
+
+.mbBody #footer p{margin: 0;padding: 10px 0;}
+
+
+.mbBody #mainContent .grey-tab{width:100%;margin-bottom:5px;display:inline-block;}
+.mbBody #mainContent .grey-tab a{color:#4a606d}
+.mbBody #mainContent .grey-tab ul{list-style:none;float:left;width:100%;font-size:87.5%;color:#4a606d;background:url(../images/grey-tab-bg.gif) repeat-x;border:1px solid #cfcfcf;padding:5px 0px;}
+.mbBody #mainContent .grey-tab ul li{display:inline-block;vertical-align:middle;}
+.mbBody #mainContent .grey-tab ul li.tab-text{width:80%;padding-left:5px;font-size:87.5%;}
+.mbBody #mainContent .grey-tab ul li.tab-btn{text-align:right;width:15%;padding-top:4px;}
+
+
+.mbBody #mainContent .column-four{width:100%;padding:5px 0px;}
+.mbBody #mainContent .column-four h1{color:#c90000;font-size:87.5%;padding-bottom:4px;}
+.mbBody #mainContent .column-four h1 a{color:#c90000}
+.mbBody #mainContent .column-four .charts{border:1px solid #e4e4e4;width:99%;}
+.mbBody #mainContent .column-four .charts .chart-title{width:100%;}
+.mbBody #mainContent .column-four .charts .chart-title ul{list-style:none;float:left;width:100%;color:#000;font-size:75%;}
+.mbBody #mainContent .column-four .charts .chart-title ul a{color:#000;}
+.mbBody #mainContent .column-four .charts .chart-title ul li{display:inline-block;padding:4px 0px; vertical-align:middle;background:#eaeded;width:48%;text-align:center;border:1px solid #e4e4e4;padding-right:2px;cursor:pointer;}
+.mbBody #mainContent .column-four .charts .chart-title ul li.sele{border:1px solid #fff;background:#fff;cursor:inherit;}
+.mbBody #mainContent .column-four .charts .table{width:100%;padding:4px 0px;}
+.mbBody #mainContent .column-four .charts .table.dn{display:none;}
+.mbBody #mainContent .column-four .charts .table .row{width:100%;padding:4px 0px;display:inline-block}
+.mbBody #mainContent .column-four .charts .table .row.odd{background:#f3f6f6}
+.mbBody #mainContent .column-four .charts .table ul{list-style:none;float:left;width:100%;color:#000;font-size:75%;}
+.mbBody #mainContent .column-four .charts .table ul li{display:inline-block;vertical-align:middle;width:22%;}
+.mbBody #mainContent .column-four .charts .table ul li.ttl{text-align:left;padding-left:4px;width:40%;}
+.mbBody #mainContent .column-four .charts .table ul li.ttl a{color:#000;}
+.mbBody #mainContent .column-four .charts .table ul li.img{text-align:center;width:10%;}
+.mbBody #mainContent .column-four .charts .table ul li.up{color:#008620;}
+.mbBody #mainContent .column-four .charts .table .row-title{width:100%;padding:4px 0px;display:inline-block;color:#6489a3;font-weight:bold;}
+.mbBody #mainContent .column-four .charts .table .row-title ul li{text-align:left;color:#6489a3;}
+.mbBody #mainContent .column-four .charts .table ul li.diff{width:5%;text-align:right;}
+.mbBody #mainContent .column-four .charts .table ul li.down{color:#e90000;}
+
+
+

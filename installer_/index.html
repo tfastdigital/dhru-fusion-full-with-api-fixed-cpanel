@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="app">
+<head>
+    <title>DHRU Installer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="user-scalable=no,width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1">
+
+    <meta name="theme-color" content="#056EB9">
+    <meta name="msapplication-navbutton-color" content="#056EB9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#056EB9">
+
+    <!--<base href="/">-->
+
+<link href="css/vendor.f759e3fee6796516c757.css" rel="stylesheet"><link href="css/main.f759e3fee6796516c757.css" rel="stylesheet"></head>
+
+<body ng-controller="AppController" style="opacity: 0;">
+
+
+    <div class="h-100 w-100 bg-transparent position-fixed fixed-top" ng-show="loader" style="z-index:9999;">
+        <div class="progress" style="height: 3px;border-radius: 0">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+    </div>
+
+
+    <ui-view class="d-flex w-100 h-100"></ui-view>
+
+
+<script src="js/runtime.f759e3fee6796516c757.js"></script><script src="js/vendor.f759e3fee6796516c757.js"></script><script src="js/main.f759e3fee6796516c757.js"></script></body>
+
+
+</html>
+
+
+
+
+
+
+

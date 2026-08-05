@@ -1,0 +1,269 @@
+<table class="table">
+    <caption>List of products</caption>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="(key,item) in products"  ng-click="productModal(item)" class="cursor-pointer">
+            <td>{{item.itemname}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<button class="btn btn-flot btn-primary" ng-click="productModal()" data-toggle="modal" data-target="#addproduct" ng-click="add()">
+    +
+</button>
+
+
+
+<div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="addproductLabel" aria-hidden="true">
+    <div class="modal-dialog   modal-xl" role="document">
+        <form class="modal-content" autocomplete="off"  name="Form" ng-submit="saveproduct($event)">
+
+            <div class="modal-header bg-light p-0 border-0">
+                <ul class="nav nav-tabs w-100 pt-2 pl-2 pr-2" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" target="_blank" id="home2-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" >{{product.itemid?'Edit '+product.itemname:'Add Product'}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  target="_blank" id="profile2-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile2"  >Pricing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="tab-pane   mx-auto active" id="home2" role="tabpanel" aria-labelledby="home2-tab">
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Types</label>
+                            <div class="col-sm-9">
+                                <select ng-model="product.itemtype"   class="form-control" required>
+                                    <option value="">Select Type</option>
+                                    <option ng-repeat="(key,item) in itemconfig" value="{{key}}">{{item.description}}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" ng-model="product.itemname" required class="form-control" >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control"  ng-model="product.itemdescription" placeholder="Description"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Group</label>
+                            <div class="col-sm-9">
+
+                                <select ng-model="product.itemgroupid" class="form-control">
+                                    <option>Select Group</option>
+                                    <option ng-repeat="(key,item) in gp" value="{{item.id}}"  > {{addSpaces(item.no)+item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" ng-model="product.allowmultipleorders" ng-true-value="'1'" ng-false-value="'0'" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">  Allow Multiple order </label>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row" ng-repeat="(keys,config) in itemconfig[product.itemtype].config">
+                            <label class="col-sm-3 col-form-label">{{config.name}}</label>
+                            <div class="col-sm-9">
+                                <div ng-if="config.type=='text'">
+                                    <input type="text" ng-required="config.required" ng-model="config.value" class="form-control" >
+                                </div>
+
+                                <div ng-if="config.type=='radio'">
+
+                                    <div class="custom-control custom-radio custom-control-inline" ng-repeat="(key,option) in config.options track by $index">
+                                        <input type="radio" id="customRadioInline{{key}}" class="custom-control-input" name="{{config.input}}"  ng-model="config.value" value="{{key}}">
+                                        <label class="custom-control-label" for="customRadioInline{{key}}">{{option}}</label>
+                                    </div>
+
+                                </div>
+                                <div ng-if="config.type=='checkbox'">
+
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" ng-model="config.value" name="{{config.input}}"  ng-true-value="'1'" ng-false-value="'0'" id="customCheck{{keys}}">
+                                        <label class="custom-control-label" for="customCheck{{keys}}">  {{config.name}} </label>
+                                    </div>
+
+                                </div>
+                                <div ng-if="config.type=='dropdown'">
+                                    <select  class="form-control"  ng-model="config.value">
+                                        <option value="">Select</option>
+                                        <option ng-repeat="(key,item) in config.options track by $index" value="{{key}}">{{option}}</option>
+                                    </select>
+                                </div>
+                                <div ng-if="config.type=='textarea'"  ng-model="config.value">
+                                    <textarea ng-required="config.required" class="form-control" />
+                                </div>
+                                <small class="text-muted">{{config.description}}</small>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile2-tab">
+
+
+                            <div class="bg-light rounded p-3">
+
+                                <div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="pricing" ng-model="product.pricing" ng-checked="product.pricing == 'free'" class="custom-control-input" value="free">
+                                        <label class="custom-control-label" for="customRadioInline1">Free</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="pricing" ng-model="product.pricing"  ng-checked="product.pricing == 'onetime'" class="custom-control-input" value="onetime">
+                                        <label class="custom-control-label" for="customRadioInline2">One Time</label>
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline3" name="pricing" ng-model="product.pricing"   ng-checked="product.pricing == 'recurring'"  class="custom-control-input" value="recurring">
+                                        <label class="custom-control-label" for="customRadioInline3">Recurring</label>
+                                    </div>
+                                </div>
+
+                                <div   ng-if="product.pricing == 'recurring'" >
+
+                                    <div class="d-flex justify-content-start bg-light rounded">
+                                        <div class="custom-control d-inline-block mt-3 mr-3 custom-checkbox" ng-repeat="(keys,r) in recurring track by  $index">
+                                            <input type="checkbox" class="custom-control-input" ng-model="r.checked" name="field{{keys}}" ng-true-value="'1'" ng-false-value="'0'" id="customCheckfield{{keys}}">
+                                            <label class="custom-control-label" for="customCheckfield{{keys}}">  {{r.text}} </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12 mt-3 ">
+                                <div  ng-if="product.pricing == 'recurring'" >
+
+
+                                    <table class="table border-bottom">
+                                        <thead>
+                                        <tr>
+                                            <th></th><th></th>
+                                            <th   ng-repeat="(key,c) in inits.currencies  track by  $index" class="nowrap text-center price">{{c.code}} <span ng-if="c.default =='1'">*</span> </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody ng-repeat="(key1,r) in recurring track by  $index" ng-if="r.checked=='1'">
+                                        <tr>
+                                            <th class="nowrap border-right" rowspan="2">
+                                                {{r.text}}
+                                            </th>
+                                            <td>
+                                                <span class="text-muted"> Setup </span>
+                                            </td>
+                                            <td ng-repeat="(key2,c) in r.currency  track by  $index" class="text-center">
+                                                <div>
+                                                    <div ng-if="c.default == '1'">
+                                                        <input type="text" class="form-control" format="currency" symbol="{{c.code}}"     ng-model="r.basesetupcharge" ng-change="setOthersetupChargesCurrency(r)"  placeholder="{{c.code}}"/>
+                                                    </div>
+                                                    <div ng-if="c.default == '0'">
+                                                        <div ng-click="c.basesetupauto=0;c.basesetupchange=true" title="Click to update price" ng-if="!c.basesetupchange"> <i> {{c.basesetupauto|currency:c.code}} </i> </div>
+                                                        <div ng-if="c.basesetupchange">
+                                                            <input type="text"  class="form-control" format="currency" symbol="{{c.code}}"  ng-change="changesetupCharges(c,r)"  ng-model="c.basesetupauto"    placeholder="{{c.code}}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>
+                                                <span class="text-muted"> Pricing </span>
+                                            </td>
+                                            <td ng-repeat="(key2,c) in r.currency  track by  $index" class="text-center">
+                                                <div>
+                                                    <div ng-if="c.default == '1'">
+                                                        <input type="text" class="form-control" format="currency" symbol="{{c.code}}"  required  ng-model="r.baseprice" ng-change="setOtherCurrency(r)"  placeholder="{{c.code}}"/>
+                                                        <input  ng-if="key1=='pricingdays'" ng-model="c.days" type="text" placeholder="Days" class="form-control mt-2">
+                                                    </div>
+                                                    <div ng-if="c.default == '0'">
+                                                        <div ng-click="c.auto=0;c.change=true" title="Click to update price" ng-if="!c.change"> <i> {{c.auto|currency:c.code}} </i> </div>
+                                                        <div ng-if="c.change">
+                                                            <input type="text"  class="form-control" format="currency" symbol="{{c.code}}"  ng-change="changePrice(c,r)"  ng-model="c.auto"    placeholder="{{c.code}}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <table  class="table  border-bottom"  ng-if="product.pricing == 'onetime'">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th ng-repeat="(key,c) in inits.currencies  track by  $index" class="nowrap price text-center">{{c.code}} <span ng-if="c.default =='1'">*</span> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key1,r) in onetime track by  $index">
+                                            <th  class="nowrap">{{r.text}}</th>
+                                            <td ng-repeat="(key2,c) in r.currency  track by  $index" class="text-center">
+                                                <div>
+                                                    <div ng-if="c.default == '1'">
+                                                        <input type="text" class="form-control" format="currency" symbol="{{c.code}}"  required  ng-model="r.baseprice" ng-change="setOtherCurrency(r)"  placeholder="{{c.code}}"/>
+                                                    </div>
+                                                    <div ng-if="c.default == '0'">
+                                                        <div ng-click="c.auto=0;c.change=true" title="Click to update price" ng-if="!c.change"> <i> {{c.auto|currency:c.code}} </i> </div>
+                                                        <div ng-if="c.change">
+                                                            <input type="text"  class="form-control" format="currency" symbol="{{c.code}}"  ng-change="changePrice(c,r)"  ng-model="c.auto"    placeholder="{{c.code}}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

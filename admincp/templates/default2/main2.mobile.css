@@ -1,0 +1,255 @@
+*{-webkit-appearance:none;}
+body.main2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    padding: 0;
+}
+.todo li, .quicklink li a {
+    font-size: 16px !important;
+    list-style: none;
+    padding: 10px;
+}
+.todo li a,.quicklink li a{display: flex;align-items: center}
+.quicklink li a span, .todo li span {
+    background: #ee6c22;
+    color: white;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 4px;
+    min-width: 30px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+#tabmenu{border-bottom: #666 solid 1px}
+#tabmenu a.tabmenu_active{border-bottom: #333 solid 2px}
+.dark #tabmenu a.tabmenu_active{border-bottom: #f59731 solid 2px}
+.firstDiv #tabmenu {
+    background: transparent !important;
+    display: flex !important;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border-bottom: #ccc solid 1px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    margin: auto !important;
+    right: auto;
+    padding: 0;
+    margin-bottom: 10px !important;
+}
+.dark .firstDiv #tabmenu {
+    border-bottom:#272b30 solid 1px
+}
+.firstDiv #tabmenu li{list-style: none;float: none}
+.firstDiv #tabmenu a{color:black !important;white-space: nowrap;padding:10px;display: inline-block;text-decoration: none;color:white}
+
+
+.firstDiv .column-tabbing #tabmenu:not(.subtab){
+    height: auto !important;
+    padding: 0;
+}
+.firstDiv .column-tabbing #tabcontent,.firstDiv .column-tabbing .sidemenu-bar{
+    height: auto;padding: 0;
+}
+.firstDiv .column-tabbing{
+    display: block;
+}
+.firstDiv .column-tabbing .fixedbtn,.firstDiv  .column-tabbing .frmPaging{
+    left: 0;
+}
+.firstDiv .column-tabbing #tabcontent {
+    height: calc(100vh - 100px) !important;
+}
+
+table td.fieldlabel {
+    padding: 15px 0 0 0;
+    border-bottom: none;
+    display: block;
+    font-size: 13px !important;
+    color:#000;
+}
+
+table td.fieldarea {
+    float: none;
+    padding: 0 0 0px 0;
+    border-bottom: #fff solid 1px;
+    display: block;
+}
+
+
+#content table.form, fieldset {
+    padding: 0;
+    width: 100%;
+}
+#printTbl h4{
+
+}
+
+table.form input[type="text"], table.form input[type="password"], select, textarea {
+    background: #fff;
+    padding: 10px;
+    border: #ddd solid 1px;
+    margin: 3px 3px 3px 0;
+    box-shadow: none;
+    border-radius: 2px;
+}
+select{
+    padding: 0 10px;
+    width:auto !important;
+    background: #f4f4f4;
+    border-radius: 2px;
+}
+
+.span-select::after {
+    border-radius: 2px;
+    border: #ddd solid 1px;
+    box-sizing: border-box;
+    border-bottom: none;
+}
+table.form textarea {
+    height: 50px;
+    background: #fff;
+    border: #ddd solid 1px;
+    max-width: 250px;
+}
+
+.default_dg_fieldset {
+    width: 100% !important;
+    margin-top: 0;
+    padding: 0 !important;
+    overflow: auto;
+}
+.default_dg_fieldset td{padding: 0 !important;}
+.default_dg_paging_table{
+    padding: 5px 10px !important;
+}
+.fixedbtn, .frmPaging{
+    padding:10px;
+}
+.fixedbtn {
+    justify-content: space-between;
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+}
+.fixedbtn input{
+    margin-bottom: 2px;
+}
+
+.fieldarea small {
+    background: #ffffff;
+    color: #888888 !important;
+    font-style: normal;
+    margin-left: 0;
+    opacity: 1;
+    padding: 0;
+    position: relative;
+    right: auto;
+    text-align: left;
+    top: auto;
+    width: auto;
+    min-height: 30px;
+    display: block;
+    font-size: 13px;
+}
+
+.popup-content {
+    border-radius: 0px;
+    bottom: 0;
+    box-shadow: none;
+    left: 0;
+    right: 0;
+    top: 0;
+    border: none;
+}
+
+#notification1 {
+    display: block !important;
+    top: auto;
+    bottom: auto;
+    position: relative;
+    right: 0;
+    background: transparent;
+    color: #079fa7;
+    box-shadow: none !important;
+    padding: 5px;
+}
+
+div.right, div.floatright,div.left, div.floatleft {
+    max-width: 100%;
+    margin-top: 15px;
+    padding: 0;
+    float: none;
+    width: 100% !important;
+}
+
+#printTbl h4, .firstDiv h2 span{
+    font-size: 20px;
+    letter-spacing: 0;
+}
+
+
+
+
+body.dark .firstDiv #tabmenu a{
+    color: white !important;
+}
+
+body.dark table td.fieldarea{
+    border-bottom: #3e3e3e solid 1px;
+}
+.default_dg_fieldset{
+    margin-top: 0 !important;
+}
+
+
+
+.firstDiv, #mainContent{
+    margin: 1% 3% 2%;
+}
+.large{
+    width: 100% !important;
+}
+.fixedbtn .ibutton-container, .ibutton-container{
+    float: none;
+}
+
+
+.mobile-screen .large{
+    width: 100% !important;
+}
+
+body.dark table td.fieldarea{border-bottom: none}
+body.dark .fieldarea small{background: none}
+
+.iphone .responsive-table{
+    width: 100%;
+    overflow: auto;
+    margin:5px 0;
+}
+
+.android .responsive-table{
+    width: 100%;
+    overflow-x: auto;
+    margin:5px 0;
+    display: block;
+}
+
+table.form input[name="servicename"] {
+    width: auto !important;
+}
+
+.ordersummary,#weekly{width: 100% !important;right:0 !important;box-shadow: none !important}
+
+.full-editor{top:30px;}
+
+
