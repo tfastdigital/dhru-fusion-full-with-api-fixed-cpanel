@@ -1,0 +1,37 @@
+name: Security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ioc-and-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Supply-chain IOC check (laravel-lang compromise, May 2026)
+        run: |
+          set -e
+          if grep -RIl --exclude-dir=.git --exclude-dir=.github -i "flipboxstudio" . ; then
+            echo "::error::Known supply-chain IOC 'flipboxstudio' found. Treat the server as compromised and rotate secrets."
+            exit 1
+          fi
+          if find . -name composer.lock -not -path './.git/*' -exec grep -l '"name": "laravel-lang/' {} + 2>/dev/null; then
+            echo "::warning::laravel-lang/* packages present. Verify versions against the May 2026 advisory."
+          fi
+          echo "No known IOCs found."
+      - name: No committed .env files
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$' ; then
+            echo "::error::A real .env file is committed. Remove it and rotate every secret in it."
+            exit 1
+          fi
